@@ -9,4 +9,5 @@ output/*
 !output/.gitkeep
 
 # Docs
-docs/docs/api/*
+docs/docs/api/**
+docs/docs/build/**

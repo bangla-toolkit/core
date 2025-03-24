@@ -30,6 +30,7 @@ const config: Config = {
     defaultLocale: "en",
     locales: ["en"],
   },
+  themes: ["@docusaurus/theme-live-codeblock"],
   plugins: [["docusaurus-plugin-typedoc", {}]],
   presets: [
     [
@@ -40,6 +41,12 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl: "https://github.com/bangla-toolkit/bntk/tree/main/docs/",
+          remarkPlugins: [
+            [
+              require("@docusaurus/remark-plugin-npm2yarn"),
+              { sync: true, converters: ["bun", "yarn", "pnpm"] },
+            ],
+          ],
         },
         blog: {
           showReadingTime: true,
