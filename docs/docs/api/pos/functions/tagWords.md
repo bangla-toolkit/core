@@ -4,7 +4,7 @@
 function tagWords(words): TaggedWord[];
 ```
 
-Defined in: [index.ts:134](https://github.com/nurulhudaapon/bntk/blob/3cb3d2a47ba842d629243298e3fd679945ac06fb/packages/core/pos/src/index.ts#L134)
+Defined in: [index.ts:134](https://github.com/nurulhudaapon/bntk/blob/4d05cddf73d9545c9d0917a84ef6563b6f925673/packages/core/pos/src/index.ts#L134)
 
 Tags a sequence of Bangla words with their parts of speech
 

@@ -4,7 +4,7 @@
 function extractEntities(text): Entity[];
 ```
 
-Defined in: [index.ts:41](https://github.com/nurulhudaapon/bntk/blob/3cb3d2a47ba842d629243298e3fd679945ac06fb/packages/core/ner/src/index.ts#L41)
+Defined in: [index.ts:41](https://github.com/nurulhudaapon/bntk/blob/4d05cddf73d9545c9d0917a84ef6563b6f925673/packages/core/ner/src/index.ts#L41)
 
 Extracts named entities from input text.
 
