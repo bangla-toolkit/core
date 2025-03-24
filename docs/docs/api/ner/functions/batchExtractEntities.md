@@ -4,7 +4,7 @@
 function batchExtractEntities(texts): Entity[][];
 ```
 
-Defined in: [index.ts:96](https://github.com/nurulhudaapon/bntk/blob/4d05cddf73d9545c9d0917a84ef6563b6f925673/packages/core/ner/src/index.ts#L96)
+Defined in: [index.ts:96](https://github.com/nurulhudaapon/bntk/blob/314d9b2ac599759411d348b48ba4fdc0d09954c0/packages/core/ner/src/index.ts#L96)
 
 Processes multiple texts for entity extraction in batch.
 
