@@ -23,7 +23,7 @@
   "typeDeclarationVisibility": "compact", // compact | verbose
   "useCodeBlocks": true,
   "groupOrder": ["Classes", "Interfaces", "Enums"],
-  "sidebar": { "pretty": true },
+  //   "sidebar": { "pretty": true },
   "textContentMappings": {
     "title.indexPage": "API Reference",
     "title.memberPage": "{name}"
