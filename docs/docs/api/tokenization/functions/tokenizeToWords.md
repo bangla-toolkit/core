@@ -4,7 +4,7 @@
 function tokenizeToWords(text): string[];
 ```
 
-Defined in: [word.ts:57](https://github.com/nurulhudaapon/bntk/blob/ee2db1ae9750affdceaef42403c2c985a2aa2e6d/packages/core/tokenization/src/word.ts#L57)
+Defined in: [word.ts:57](https://github.com/nurulhudaapon/bntk/blob/bd66ef90e0013a2d48aa5c6a9076fca8f447b329/packages/core/tokenization/src/word.ts#L57)
 
 Tokenizes a Bangla text string into an array of words.
 

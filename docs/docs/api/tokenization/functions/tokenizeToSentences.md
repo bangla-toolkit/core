@@ -4,7 +4,7 @@
 function tokenizeToSentences(text): string[];
 ```
 
-Defined in: [sentence.ts:50](https://github.com/nurulhudaapon/bntk/blob/ee2db1ae9750affdceaef42403c2c985a2aa2e6d/packages/core/tokenization/src/sentence.ts#L50)
+Defined in: [sentence.ts:50](https://github.com/nurulhudaapon/bntk/blob/bd66ef90e0013a2d48aa5c6a9076fca8f447b329/packages/core/tokenization/src/sentence.ts#L50)
 
 Tokenizes a Bangla text into an array of sentences.
 

@@ -13,12 +13,12 @@ const config: Config = {
   url: "https://bangla-toolkit.github.io",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/",
+  baseUrl: "/bntk-core/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "bangla-toolkit", // Usually your GitHub org/user name.
-  projectName: "bntk", // Usually your repo name.
+  projectName: "bntk-core", // Usually your repo name.
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -80,7 +80,7 @@ const config: Config = {
         },
         // { to: "/blog", label: "Blog", position: "left" },
         {
-          href: "https://github.com/bangla-toolkit/bntk",
+          href: "https://github.com/bangla-toolkit",
           label: "GitHub",
           position: "right",
         },
@@ -128,7 +128,7 @@ const config: Config = {
             // },
             {
               label: "GitHub",
-              href: "https://github.com/bangla-toolkit/bntk",
+              href: "https://github.com/bangla-toolkit",
             },
           ],
         },

@@ -7,3 +7,6 @@ packages/dataset/assets/*
 packages/dataset/output
 output/*
 !output/.gitkeep
+
+# Docs
+docs/docs/api/*
