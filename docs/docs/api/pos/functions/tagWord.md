@@ -4,7 +4,7 @@
 function tagWord(word): TaggedWord;
 ```
 
-Defined in: [index.ts:102](https://github.com/nurulhudaapon/bntk/blob/314d9b2ac599759411d348b48ba4fdc0d09954c0/packages/core/pos/src/index.ts#L102)
+Defined in: [index.ts:102](https://github.com/nurulhudaapon/bntk/blob/25c5fe4c3c5aa822d37005be7e1fb5bdb0e245fe/packages/core/pos/src/index.ts#L102)
 
 Tags a single Bangla word with its part of speech
 

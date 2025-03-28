@@ -7,7 +7,7 @@ import { themes as prismThemes } from "prism-react-renderer";
 const config: Config = {
   title: "Bangla Toolkit",
   tagline: "A comprehensive suite of tools for working with Bangla language",
-  favicon: "img/favicon.ico",
+  favicon: "img/logo.svg",
 
   // Set the production url of your site here
   url: "https://bangla-toolkit.github.io",
@@ -68,15 +68,15 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-
   themeConfig: {
     // Replace with your project's social card
-    image: "img/Icon=Main.svg",
+    image: "img/logo.svg",
     navbar: {
       title: "Bangla Toolkit",
       logo: {
         alt: "Bangla Toolkit Logo",
-        src: "img/Icon=Main.svg",
+        src: "img/logo.svg",
+        srcDark: "img/logo.svg",
       },
       items: [
         {

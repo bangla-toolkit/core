@@ -3,7 +3,7 @@
   "entryPointStrategy": "packages",
   "tsconfig": "../tsconfig.json",
   "plugin": ["typedoc-plugin-markdown", "typedoc-plugin-frontmatter"],
-  //   "readme": "none",
+  "readme": "none",
   // Markdown Options
   "excludeScopesInPaths": true,
   "mergeReadme": true,

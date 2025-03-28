@@ -4,7 +4,7 @@
 function getPOSTagFrequencies(taggedWords): Map<UniversalPOSTag, number>;
 ```
 
-Defined in: [index.ts:196](https://github.com/nurulhudaapon/bntk/blob/314d9b2ac599759411d348b48ba4fdc0d09954c0/packages/core/pos/src/index.ts#L196)
+Defined in: [index.ts:196](https://github.com/nurulhudaapon/bntk/blob/25c5fe4c3c5aa822d37005be7e1fb5bdb0e245fe/packages/core/pos/src/index.ts#L196)
 
 Gets the most common POS tags in a sequence of tagged words
 
