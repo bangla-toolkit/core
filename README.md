@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://bangla-toolkit.github.io/bntk-core/">
-    <img alt="Bangla Toolkit" src="https://github.com/bangla-toolkit.png?s=200&v=4" width="300" />
+    <img alt="Bangla Toolkit" src="https://bangla-toolkit.github.io/bntk-core/img/logo.svg" width="300" />
   </a>
 </p>
 
