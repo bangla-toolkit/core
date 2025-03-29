@@ -36,7 +36,6 @@ const config: Config = {
     [
       "docusaurus-plugin-typedoc",
       {
-        // @ts-expect-error
         entryPoints: ["../packages/core/*"],
         entryPointStrategy: "packages",
         tsconfig: "../tsconfig.json",
@@ -46,7 +45,7 @@ const config: Config = {
         excludeScopesInPaths: true,
         mergeReadme: true,
         // hidePageHeader: true,
-        hideBreadcrumbs: true,
+        // hideBreadcrumbs: true,
         //   "hidePageTitle": true,
         hideGroupHeadings: true,
         //   "excludeGroups": true,
@@ -60,14 +59,15 @@ const config: Config = {
         // flattenOutputFiles: true,
         typeDeclarationVisibility: "compact", // compact | verbose
         useCodeBlocks: true,
-        groupOrder: ["functions", "enumerations", "Interfaces", "Enums"],
+        // groupOrder: ["functions", "enumerations", "Interfaces", "Enums"],
         //   "sidebar": { "pretty": true },
         formatWithPrettier: true,
         prettierConfigFile: "../.prettierrc",
+        // @ts-expect-error
         textContentMappings: {
           "title.indexPage": "API Reference",
-          "header.title": "API Reference",
-          "breadcrumbs.home": "API Reference",
+          // "header.title": "API Reference",
+          // "breadcrumbs.home": "API Reference",
           "title.memberPage": "{name}",
           "title.modulePage": "📦 {name}",
         },
@@ -113,6 +113,10 @@ const config: Config = {
   ],
   themeConfig: {
     // Replace with your project's social card
+    colorMode: {
+      disableSwitch: true,
+      respectPrefersColorScheme: true,
+    },
     image: "img/logo.svg",
     navbar: {
       title: "Bangla Toolkit",
@@ -126,13 +130,19 @@ const config: Config = {
           type: "docSidebar",
           sidebarId: "tutorialSidebar",
           position: "left",
-          label: "Documentation",
+          label: "Docs",
+        },
+        {
+          href: "https://bangla-toolkit.github.io/web/",
+          label: "Try Online",
+          position: "left",
         },
         // { to: "/blog", label: "Blog", position: "left" },
         {
           href: "https://github.com/bangla-toolkit",
           label: "GitHub",
           position: "right",
+          className: "header-github-link",
         },
       ],
     },
