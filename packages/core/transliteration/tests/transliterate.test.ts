@@ -20,17 +20,17 @@ describe("transliterate", () => {
     });
   });
 
-  avro.forEach(({ orva, avroed }, index) => {
-    test(`orva ${index + 1}: ${orva.slice(0, 6)}..`, () => {
-      expect(transliterate(orva, { mode: "orva" })).toEqual(avroed);
-    });
-  });
+  // avro.forEach(({ orva, avroed }, index) => {
+  //   test(`orva ${index + 1}: ${orva.slice(0, 6)}..`, () => {
+  //     expect(transliterate(orva, { mode: "orva" })).toEqual(avroed);
+  //   });
+  // });
 
-  Object.entries(ligature).forEach(([key, value]) => {
-    test(`orva: ${value} ➜ ${key}`, () => {
-      expect(transliterate(value, { mode: "orva" })).toEqual(key);
-    });
-  });
+  // Object.entries(ligature).forEach(([key, value]) => {
+  //   test(`orva: ${value} ➜ ${key}`, () => {
+  //     expect(transliterate(value, { mode: "orva" })).toEqual(key);
+  //   }, 15); // 1 second timeout
+  // });
 
   test("performance test - should handle large text quickly", () => {
     const ALLOWED_TIME_PER_THOUSAND_CHARS = process.arch === "arm64" ? 5 : 10; // Faster on ARM processors

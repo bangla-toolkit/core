@@ -1,9 +1,9 @@
-import * as rules from "../assets/rules.json";
+import type { RootRule } from "./types";
 
 /**
  * Phonetic rules for Bangla transliteration
  */
-export const phonetic = {
+export const createPhonetic = (rules: RootRule) => ({
   /**
    * Normalizes the input string to handle case sensitivity correctly
    * according to the predefined rules.
@@ -82,4 +82,4 @@ export const phonetic = {
   isCaseSensitive(c: string) {
     return rules.casesensitive.includes(c.toLowerCase());
   },
-};
+});
