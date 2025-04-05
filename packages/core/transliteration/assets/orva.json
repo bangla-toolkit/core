@@ -1,6 +1,6 @@
 {
-  "vowel": "অএইঈউঊ",
-  "consonant": "বচদফগহজকলমনপরসতথউভয়জ",
+  "vowel": "অআইঈউঊএঐওঔ",
+  "consonant": "বচদফগহজকলমনপরসতথউভয়জকখগঘঙচছজঝঞটঠডঢণতথদধনপফবভমযরলশষসহ",
   "casesensitive": "ওইউদগজনরসতয়জ",
   "patterns": [
     { "find": "ভ্ল", "replace": "bhl" },
@@ -11,12 +11,45 @@
     { "find": "ব্ব", "replace": "bb" },
     { "find": "ব্ল", "replace": "bl" },
     { "find": "ভ", "replace": "bh" },
-    { "find": "ব", "replace": "b" },
+    {
+      "find": "ব",
+      "replace": "b",
+      "rules": [
+        {
+          "matches": [
+            { "type": "suffix", "scope": "consonant", "value": null }
+          ],
+          "replace": "bo"
+        }
+      ]
+    },
     { "find": "চ্ঞ", "replace": "cNG" },
     { "find": "চ্ছ", "replace": "cch" },
     { "find": "চ্চ", "replace": "cc" },
-    { "find": "ছ", "replace": "ch" },
-    { "find": "চ", "replace": "c" },
+    {
+      "find": "ছ",
+      "replace": "ch",
+      "rules": [
+        {
+          "matches": [
+            { "type": "suffix", "scope": "consonant", "value": null }
+          ],
+          "replace": "bo"
+        }
+      ]
+    },
+    {
+      "find": "চ",
+      "replace": "c",
+      "rules": [
+        {
+          "matches": [
+            { "type": "suffix", "scope": "consonant", "value": null }
+          ],
+          "replace": "bo"
+        }
+      ]
+    },
     { "find": "ধ্ন", "replace": "dhn" },
     { "find": "ধ্ম", "replace": "dhm" },
     { "find": "দ্ঘ", "replace": "dgh" },
@@ -31,7 +64,7 @@
     { "find": "ড", "replace": "D" },
     { "find": "দ", "replace": "d" },
     { "find": "...", "replace": "..." },
-    { "find": ".", "replace": ".`" },
+    { "find": ".`", "replace": "." },
     { "find": "।।", "replace": ".." },
     { "find": "।", "replace": "." },
     { "find": "ঘ্ন", "replace": "ghn" },
@@ -41,17 +74,61 @@
     { "find": "গ্ম", "replace": "gm" },
     { "find": "গ্ল", "replace": "gl" },
     { "find": "জ্ঞ", "replace": "gg" },
-    { "find": "ঘ", "replace": "gh" },
-    { "find": "গ", "replace": "g" },
+    {
+      "find": "ঘ",
+      "replace": "gh",
+      "rules": [
+        {
+          "matches": [
+            { "type": "suffix", "scope": "consonant", "value": null }
+          ],
+          "replace": "bo"
+        }
+      ]
+    },
+    {
+      "find": "গ",
+      "replace": "g",
+      "rules": [
+        {
+          "matches": [
+            { "type": "suffix", "scope": "consonant", "value": null }
+          ],
+          "replace": "bo"
+        }
+      ]
+    },
     { "find": "হ্ণ", "replace": "hN" },
     { "find": "হ্ন", "replace": "hn" },
     { "find": "হ্ম", "replace": "hm" },
     { "find": "হ্ল", "replace": "hl" },
     { "find": "হ", "replace": "h" },
     { "find": "জ্ঝ", "replace": "jjh" },
-    { "find": "ঝ", "replace": "jh" },
+    {
+      "find": "ঝ",
+      "replace": "jh",
+      "rules": [
+        {
+          "matches": [
+            { "type": "suffix", "scope": "consonant", "value": null }
+          ],
+          "replace": "bo"
+        }
+      ]
+    },
     { "find": "জ্জ", "replace": "jj" },
-    { "find": "জ", "replace": "j" },
+    {
+      "find": "জ",
+      "replace": "j",
+      "rules": [
+        {
+          "matches": [
+            { "type": "suffix", "scope": "consonant", "value": null }
+          ],
+          "replace": "bo"
+        }
+      ]
+    },
     { "find": "ক্ষ্ণ", "replace": "kkhN" },
     { "find": "ক্ষ্ম", "replace": "kkhm" },
     { "find": "ক্ষ", "replace": "kkh" },
@@ -62,7 +139,18 @@
     { "find": "ক্ল", "replace": "kl" },
     { "find": "ক্স", "replace": "ks" },
     { "find": "খ", "replace": "kh" },
-    { "find": "ক", "replace": "k" },
+    {
+      "find": "ক",
+      "replace": "k",
+      "rules": [
+        {
+          "matches": [
+            { "type": "suffix", "scope": "consonant", "value": null }
+          ],
+          "replace": "ko"
+        }
+      ]
+    },
     { "find": "ল্ভ", "replace": "lbh" },
     { "find": "ল্ধ", "replace": "ldh" },
     { "find": "লখ", "replace": "lkh" },
@@ -86,7 +174,18 @@
     { "find": "ম্ম", "replace": "mm" },
     { "find": "ম্ল", "replace": "ml" },
     { "find": "ম্ব", "replace": "mb" },
-    { "find": "ম", "replace": "m" },
+    {
+      "find": "ম",
+      "replace": "m",
+      "rules": [
+        {
+          "matches": [
+            { "type": "suffix", "scope": "consonant", "value": null }
+          ],
+          "replace": "mo"
+        }
+      ]
+    },
     { "find": "০", "replace": "0" },
     { "find": "১", "replace": "1" },
     { "find": "২", "replace": "2" },
@@ -143,9 +242,13 @@
     { "find": "ন্স", "replace": "ns" },
     { "find": "ন", "replace": "n" },
     { "find": "ণ", "replace": "N" },
-    { "find": "ৈ", "replace": "OI`" },
+    { "find": "ৈ", "replace": "OI" },
     { "find": "ৌ", "replace": "OU`" },
-    { "find": "ো", "replace": "O`" },
+    { "find": "ো", "replace": "O" },
+    { "find": "এ", "replace": "e" },
+    { "find": "উ", "replace": "u" },
+    { "find": "ই", "replace": "i" },
+    { "find": "আ", "replace": "a" },
     {
       "find": "ৈ",
       "replace": "OI",
@@ -208,8 +311,19 @@
     { "find": "প্ল", "replace": "pl" },
     { "find": "প্স", "replace": "ps" },
     { "find": "ফ", "replace": "ph" },
-    { "find": "প", "replace": "p" },
-    { "find": "ৃ", "replace": "rri`" },
+    {
+      "find": "প",
+      "replace": "p",
+      "rules": [
+        {
+          "matches": [
+            { "type": "suffix", "scope": "consonant", "value": null }
+          ],
+          "replace": "bo"
+        }
+      ]
+    },
+    { "find": "ৃ", "replace": "rri" },
     {
       "find": "ৃ",
       "replace": "rri",
@@ -292,6 +406,12 @@
       "rules": [
         {
           "matches": [
+            { "type": "suffix", "scope": "consonant", "value": null }
+          ],
+          "replace": "bo"
+        },
+        {
+          "matches": [
             { "type": "prefix", "scope": "consonant", "value": null },
             { "type": "prefix", "scope": "!exact", "value": "r" },
             { "type": "prefix", "scope": "!exact", "value": "y" },
@@ -331,7 +451,7 @@
     { "find": "শ", "replace": "sh" },
     { "find": "ষ", "replace": "Sh" },
     { "find": "স", "replace": "s" },
-    { "find": "ু", "replace": "oo`" },
+    { "find": "ু", "replace": "u" },
     {
       "find": "ু",
       "replace": "oo",
@@ -352,7 +472,7 @@
         }
       ]
     },
-    { "find": "অ", "replace": "o`" },
+    { "find": "অ`", "replace": "o" },
     { "find": "অ্য", "replace": "oZ" },
     {
       "find": "অ",
@@ -392,7 +512,7 @@
     { "find": "ট", "replace": "T" },
     { "find": "ত", "replace": "t" },
     { "find": "অ্যা", "replace": "aZ" },
-    { "find": "া", "replace": "a`" },
+    { "find": "া", "replace": "a" },
     {
       "find": "া",
       "replace": "a",
@@ -421,7 +541,7 @@
         }
       ]
     },
-    { "find": "ি", "replace": "i`" },
+    { "find": "ি", "replace": "i" },
     {
       "find": "ি",
       "replace": "i",
@@ -442,7 +562,7 @@
         }
       ]
     },
-    { "find": "ী", "replace": "I`" },
+    { "find": "ী", "replace": "I" },
     {
       "find": "ী",
       "replace": "I",
@@ -483,7 +603,7 @@
         }
       ]
     },
-    { "find": "ূ", "replace": "U`" },
+    { "find": "ূ`", "replace": "U" },
     {
       "find": "ূ",
       "replace": "U",
@@ -524,7 +644,7 @@
         }
       ]
     },
-    { "find": "ে", "replace": "e`" },
+    { "find": "ে", "replace": "e" },
     {
       "find": "ে",
       "replace": "e",
@@ -569,12 +689,19 @@
     { "find": "য়", "replace": "Y" },
     {
       "find": "ও",
-      "replace": "w",
+      "replace": "O",
       "rules": [
         {
           "matches": [
+            { "type": "exact", "scope": "punctuation", "value": null },
+            { "type": "prefix", "scope": "consonant", "value": null }
+          ],
+          "replace": "O"
+        },
+        {
+          "matches": [
             { "type": "prefix", "scope": "punctuation", "value": null },
-            { "type": "suffix", "scope": "vowel", "value": null }
+            { "type": "prefix", "scope": "vowel", "value": null }
           ],
           "replace": "w"
         },
@@ -603,6 +730,7 @@
     { "find": "^", "replace": "^`" },
     { "find": "ঁ", "replace": "^" },
     { "find": "্‌", "replace": ",," },
+    { "find": "্‌", "replace": "" },
     { "find": ",", "replace": "," },
     { "find": "৳", "replace": "$" }
   ]

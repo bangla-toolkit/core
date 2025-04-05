@@ -153,30 +153,30 @@ function createTransliterator(rules: RootRule) {
       let isMatched = false;
 
       // Try to match from cache first
-      const cacheKey = fixed.slice(startIndex, startIndex + 8); // Cache key with reasonable length
-      const cachedMatch = patternMatchCache.get(cacheKey);
+      // const cacheKey = fixed.slice(startIndex, startIndex + 8); // Cache key with reasonable length
+      // const cachedMatch = patternMatchCache.get(cacheKey);
 
-      if (cachedMatch) {
-        const { pattern, endIndex } = cachedMatch;
-        if (
-          endIndex <= len &&
-          fixed.substring(startIndex, endIndex) === pattern.find
-        ) {
-          const result = processPattern(
-            pattern,
-            fixed,
-            startIndex,
-            endIndex,
-            currentIndex,
-            phonetic,
-          );
-          if (result.isMatched) {
-            output.push(result.output);
-            currentIndex = result.newIndex;
-            continue;
-          }
-        }
-      }
+      // if (cachedMatch) {
+      //   const { pattern, endIndex } = cachedMatch;
+      //   if (
+      //     endIndex <= len &&
+      //     fixed.substring(startIndex, endIndex) === pattern.find
+      //   ) {
+      //     const result = processPattern(
+      //       pattern,
+      //       fixed,
+      //       startIndex,
+      //       endIndex,
+      //       currentIndex,
+      //       phonetic,
+      //     );
+      //     if (result.isMatched) {
+      //       output.push(result.output);
+      //       currentIndex = result.newIndex;
+      //       continue;
+      //     }
+      //   }
+      // }
 
       // No cache hit, try matching patterns
       for (const { pattern, length } of patternsWithLength) {
@@ -188,7 +188,7 @@ function createTransliterator(rules: RootRule) {
         const segment = fixed.substring(startIndex, endIndex);
         if (segment === pattern.find) {
           // Cache this successful match for future use
-          patternMatchCache.set(cacheKey, { pattern, endIndex });
+          // patternMatchCache.set(cacheKey, { pattern, endIndex });
 
           const result = processPattern(
             pattern,
