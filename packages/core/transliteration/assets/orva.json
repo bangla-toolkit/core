@@ -352,10 +352,10 @@
         }
       ]
     },
-    { "find": "", "replace": "o`" },
+    { "find": "অ", "replace": "o`" },
     { "find": "অ্য", "replace": "oZ" },
     {
-      "find": "",
+      "find": "অ",
       "replace": "o",
       "rules": [
         {

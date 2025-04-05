@@ -104,11 +104,11 @@ export function transliterate(
   options: TransliterationOptions = { mode: "avro" },
 ) {
   const fn = MODE_TRANSLITERATION_FUNCTIONS[options.mode];
-  if (!fn) {
+  if (!fn)
     throw new Error(
       "Invalid mode. Available modes are: 'avro', 'orva', 'banglish', 'lishbang'",
     );
-  }
+
   return fn(text);
 }
 
@@ -140,11 +140,13 @@ function createTransliterator(rules: RootRule) {
     const output: string[] = []; // Using array for faster string concatenation
     const len = fixed.length;
 
-    // Pre-calculate pattern lengths for faster matching
-    const patternsWithLength = rules.patterns.map((pattern) => ({
-      pattern,
-      length: pattern.find.length,
-    }));
+    // Pre-calculate pattern lengths for faster matching and filter out empty patterns
+    const patternsWithLength = rules.patterns
+      .filter((pattern) => pattern.find.length > 0) // Skip empty patterns to avoid infinite loops
+      .map((pattern) => ({
+        pattern,
+        length: pattern.find.length,
+      }));
 
     for (let currentIndex = 0; currentIndex < len; ++currentIndex) {
       const startIndex = currentIndex;
@@ -181,6 +183,7 @@ function createTransliterator(rules: RootRule) {
         const endIndex = currentIndex + length;
 
         if (endIndex > len) continue; // Skip if pattern is too long
+        if (length === 0) continue; // Skip empty patterns to prevent infinite loops
 
         const segment = fixed.substring(startIndex, endIndex);
         if (segment === pattern.find) {
