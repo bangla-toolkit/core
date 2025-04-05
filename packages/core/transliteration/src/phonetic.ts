@@ -39,7 +39,7 @@ export const createPhonetic = (rules: RootRule) => ({
    * @returns {boolean} True if the character is a consonant, false otherwise
    */
   isConsonant(c: string) {
-    return rules.consonant.includes(c.toLowerCase());
+    return rules.consonant.replace(/ /g, "").includes(c.toLowerCase());
   },
   /**
    * Checks if a character is a punctuation (not a vowel or consonant).
