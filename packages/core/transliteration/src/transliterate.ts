@@ -1,3 +1,4 @@
+import * as orvaRules from "../assets/orva.json";
 import * as rules from "../assets/rules.json";
 import { phonetic } from "./phonetic";
 
@@ -355,17 +356,10 @@ function orva(text: string) {
       output += text.charAt(cur);
     }
   }
-  return output
-    .replaceAll("`", "")
-    .replaceAll("আ", "a")
-    .replaceAll("অ", "o")
-    .replaceAll("ই", "i")
-    .replaceAll("ঈ", "e")
-    .replaceAll("উ", "u")
-    .replaceAll("এ", "e")
-    .replaceAll("্", "")
-    .replaceAll("়", "")
-    .replaceAll("উ", "u");
+  for (const rule of orvaRules.patterns) {
+    output = output.replace(new RegExp(rule.find, "g"), rule.replace);
+  }
+  return output;
 }
 
 function banglish(text: string): string {

@@ -1,0 +1,534 @@
+{
+  "patterns": [
+    {
+      "find": "`",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "ই",
+      "replace": "i",
+      "rules": []
+    },
+    {
+      "find": "ঈ",
+      "replace": "I",
+      "rules": []
+    },
+    {
+      "find": "উ",
+      "replace": "oo",
+      "rules": []
+    },
+    {
+      "find": "ঊ",
+      "replace": "OO",
+      "rules": []
+    },
+    {
+      "find": "ঋ",
+      "replace": "R",
+      "rules": []
+    },
+    {
+      "find": "এ",
+      "replace": "e",
+      "rules": []
+    },
+    {
+      "find": "ঐ",
+      "replace": "oi",
+      "rules": []
+    },
+    {
+      "find": "ও",
+      "replace": "o",
+      "rules": []
+    },
+    {
+      "find": "ঔ",
+      "replace": "ou",
+      "rules": []
+    },
+    {
+      "find": "অ",
+      "replace": "o",
+      "rules": []
+    },
+    {
+      "find": "আ",
+      "replace": "a",
+      "rules": []
+    },
+    {
+      "find": "ক",
+      "replace": "k",
+      "rules": []
+    },
+    {
+      "find": "খ",
+      "replace": "kh",
+      "rules": []
+    },
+    {
+      "find": "গ",
+      "replace": "g",
+      "rules": []
+    },
+    {
+      "find": "ঘ",
+      "replace": "gh",
+      "rules": []
+    },
+    {
+      "find": "ঙ",
+      "replace": "ng",
+      "rules": []
+    },
+    {
+      "find": "চ",
+      "replace": "ch",
+      "rules": []
+    },
+    {
+      "find": "ছ",
+      "replace": "Ch",
+      "rules": []
+    },
+    {
+      "find": "জ",
+      "replace": "j",
+      "rules": []
+    },
+    {
+      "find": "ঝ",
+      "replace": "jh",
+      "rules": []
+    },
+    {
+      "find": "ঞ",
+      "replace": "n",
+      "rules": []
+    },
+    {
+      "find": "ট",
+      "replace": "T",
+      "rules": []
+    },
+    {
+      "find": "ঠ",
+      "replace": "Th",
+      "rules": []
+    },
+    {
+      "find": "ড",
+      "replace": "D",
+      "rules": []
+    },
+    {
+      "find": "ঢ",
+      "replace": "Dh",
+      "rules": []
+    },
+    {
+      "find": "ণ",
+      "replace": "N",
+      "rules": []
+    },
+    {
+      "find": "ত",
+      "replace": "t",
+      "rules": []
+    },
+    {
+      "find": "থ",
+      "replace": "th",
+      "rules": []
+    },
+    {
+      "find": "দ",
+      "replace": "d",
+      "rules": []
+    },
+    {
+      "find": "ধ",
+      "replace": "dh",
+      "rules": []
+    },
+    {
+      "find": "ন",
+      "replace": "n",
+      "rules": []
+    },
+    {
+      "find": "প",
+      "replace": "p",
+      "rules": []
+    },
+    {
+      "find": "ফ",
+      "replace": "ph",
+      "rules": []
+    },
+    {
+      "find": "ব",
+      "replace": "b",
+      "rules": []
+    },
+    {
+      "find": "ভ",
+      "replace": "bh",
+      "rules": []
+    },
+    {
+      "find": "ম",
+      "replace": "m",
+      "rules": []
+    },
+    {
+      "find": "য",
+      "replace": "z",
+      "rules": []
+    },
+    {
+      "find": "র",
+      "replace": "r",
+      "rules": []
+    },
+    {
+      "find": "ল",
+      "replace": "l",
+      "rules": []
+    },
+    {
+      "find": "শ",
+      "replace": "sh",
+      "rules": []
+    },
+    {
+      "find": "ষ",
+      "replace": "Sh",
+      "rules": []
+    },
+    {
+      "find": "স",
+      "replace": "s",
+      "rules": []
+    },
+    {
+      "find": "হ",
+      "replace": "h",
+      "rules": []
+    },
+    {
+      "find": "ড়",
+      "replace": "R",
+      "rules": []
+    },
+    {
+      "find": "ঢ়",
+      "replace": "Rh",
+      "rules": []
+    },
+    {
+      "find": "য়",
+      "replace": "y",
+      "rules": []
+    },
+    {
+      "find": "ৎ",
+      "replace": "t",
+      "rules": []
+    },
+    {
+      "find": "ং",
+      "replace": "ng",
+      "rules": []
+    },
+    {
+      "find": "ঃ",
+      "replace": ":",
+      "rules": []
+    },
+    {
+      "find": "ঁ",
+      "replace": "~",
+      "rules": []
+    },
+    {
+      "find": "w",
+      "replace": "O",
+      "rules": []
+    },
+    {
+      "find": "oo",
+      "replace": "u",
+      "rules": []
+    },
+    {
+      "find": "a্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "b্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "c্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "d্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "e্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "f্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "g্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "h্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "i্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "j্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "k্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "l্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "m্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "n্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "o্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "p্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "q্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "r্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "s্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "t্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "u্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "v্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "w্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "x্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "y্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "z্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "A্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "B্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "C্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "D্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "E্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "F্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "G্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "H্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "I্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "J্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "K্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "L্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "M্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "N্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "O্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "P্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "Q্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "R্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "S্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "T্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "U্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "V্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "W্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "X্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "Y্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "Z্",
+      "replace": "",
+      "rules": []
+    },
+    {
+      "find": "u",
+      "replace": "",
+      "rules": []
+    }
+  ]
+}

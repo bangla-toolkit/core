@@ -9,14 +9,26 @@ const firstAvro = avro[0]!;
 
 describe("transliterate", () => {
   avro.forEach(({ orva, avroed }, index) => {
-    test(`mode: avro test ${index + 1}: ${orva.slice(0, 6)}..`, () => {
+    test(`avro ${index + 1}: ${orva.slice(0, 6)}..`, () => {
       expect(transliterate(orva, { mode: "avro" })).toEqual(avroed);
     });
   });
 
   Object.entries(ligature).forEach(([key, value]) => {
-    test(`mode: avro ligature - ${key} > ${value}`, () => {
+    test(`avro: ${key} ➜ ${value}`, () => {
       expect(transliterate(key, { mode: "avro" })).toEqual(value);
+    });
+  });
+
+  avro.forEach(({ orva, avroed }, index) => {
+    test(`orva ${index + 1}: ${orva.slice(0, 6)}..`, () => {
+      expect(transliterate(orva, { mode: "orva" })).toEqual(avroed);
+    });
+  });
+
+  Object.entries(ligature).forEach(([key, value]) => {
+    test(`orva: ${value} ➜ ${key}`, () => {
+      expect(transliterate(value, { mode: "orva" })).toEqual(key);
     });
   });
 
