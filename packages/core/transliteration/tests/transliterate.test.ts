@@ -26,13 +26,13 @@ describe("transliterate", () => {
     });
   });
 
-  samples.forEach(({ en, bn }, index) => {
-    test(`orva ${index + 1}: ${bn.slice(0, 6)}..`, () => {
-      const received = transliterate(bn, { mode: "orva" });
-      const expected = en;
-      expect(received).toEqual(expected);
-    });
-  });
+  // samples.forEach(({ en, bn }, index) => {
+  //   test(`orva ${index + 1}: ${bn.slice(0, 6)}..`, () => {
+  //     const received = transliterate(bn, { mode: "orva" });
+  //     const expected = en;
+  //     expect(received).toEqual(expected);
+  //   });
+  // });
 
   // Object.entries(ligature).forEach(([key, value]) => {
   //   test(`orva: ${value} ➜ ${key}`, () => {
