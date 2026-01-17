@@ -1,0 +1,109 @@
+\chapter{Literature Review}
+
+This chapter presents a comprehensive examination and synthesis of existing scholarly works related to Bangla spell checking, grammar correction, and Natural Language Processing (NLP). The literature review establishes the context of the research, identifies gaps and trends in the current knowledge landscape, and provides a theoretical framework for the development of Byakaron.
+
+\section{Overview of Bangla Natural Language Processing}
+Bangla, also known as Bengali, is the seventh most spoken language in the world with over 300 million native speakers. Despite its large speaker population, Bangla remains classified as a ``low-resource'' language in the context of NLP due to limited availability of annotated datasets, standardized tools, and comprehensive language models \cite{sarker2021bnlp}.
+
+The development of Bangla NLP tools has accelerated in recent years, with notable contributions from both academic institutions and open-source communities. The BNLP toolkit provides fundamental functionalities including tokenization, stemming, part-of-speech tagging, and named entity recognition \cite{sarker2021bnlp}. Similarly, the OpenBangla project has contributed open-source input methods and basic spell checking capabilities \cite{openbangla2020}.
+
+\section{Spell Checking Approaches}
+
+\subsection{Traditional Methods}
+Early approaches to spell checking in Bangla relied primarily on dictionary lookup and edit distance algorithms. Khan et al. (2014) developed a system using N-gram models to verify the correctness of Bangla words, achieving a detection rate of 96.17\% on their test corpus \cite{khan2014ngram}. Their work demonstrated that statistical approaches based on character-level n-grams could effectively identify misspelled words even without comprehensive dictionary coverage.
+
+Pal et al. (2021) extended the N-gram approach by introducing automatic correction capabilities. Their tri-gram model analyzed neighboring words to provide context-aware suggestions, achieving improved accuracy over pure edit-distance methods \cite{pal2021ngram}. This work highlighted the importance of contextual information in resolving ambiguous correction candidates.
+
+The context-sensitive approach proposed by Chowdhury and Akhter (2020) combined edit distance with stochastic N-gram language models, achieving an accuracy of 87.58\% using a large Bangla corpus \cite{chowdhury2020context}. Their research demonstrated that integrating multiple statistical models could significantly improve correction quality.
+
+\subsection{Deep Learning Approaches}
+The advent of transformer-based models has revolutionized spell checking across languages. Jahin et al. (2023) introduced BSpell, a CNN-blended BERT-based Bangla spell checker that incorporates both word-level and character-level pretraining \cite{hasan2023bspell}. BSpell addresses the challenges of Bangla's inflectional morphology by combining semantic understanding from BERT with character-level pattern recognition from convolutional neural networks. The hybrid pretraining scheme helps the model handle out-of-vocabulary words more effectively.
+
+Hossain (2024) proposed DPCSpell, a detector-purificator-corrector framework based on denoising transformers \cite{hossain2024dpcspell}. Unlike previous approaches that attempted to correct all characters, DPCSpell selectively identifies and rectifies only erroneous characters, significantly reducing false positive corrections. The framework outperformed previous state-of-the-art methods on Bangla spelling correction benchmarks.
+
+\section{Grammar Correction Research}
+
+\subsection{Rule-Based Systems}
+Traditional grammar checking systems for Bangla have relied on manually crafted rules based on linguistic knowledge. These systems define patterns for common grammatical errors and their corresponding corrections. While rule-based approaches offer high precision for known error types, they suffer from limited coverage and require extensive expert knowledge to extend \cite{avroproject2003}.
+
+\subsection{Transformer-Based Grammar Correction}
+Miah et al. (2023) presented a method for detecting grammatical errors using the T5 (Text-to-Text Transfer Transformer) model \cite{miah2023t5}. They fine-tuned a small variant of BanglaT5 \cite{bhattacharjee2022banglat5} on a corpus of 9,385 sentences, demonstrating that transformer models could achieve low Levenshtein distance in error detection. Their research emphasized the importance of post-processing for optimal performance.
+
+Alam et al. (2024) approached grammatical error detection as a token classification problem, leveraging BanglaBERT \cite{bhattacharjee2022banglabert} for sequence labeling \cite{alam2024tokenclassification}. Their system could simultaneously detect grammatical, punctuation, and spelling errors, providing a more comprehensive correction capability.
+
+\subsection{Large Language Models for Grammar Correction}
+Islam et al. (2024) investigated the application of Large Language Models (LLMs) for Bangla Grammatical Error Correction (GEC) \cite{islam2024gec}. Their research categorized 12 distinct error classes in Bangla and developed a rule-based noise injection method for synthetic data generation. Instruction-tuning LLMs with their dataset improved GEC performance by 3-7 percentage points, approaching human-level accuracy in error identification.
+
+\section{Benchmark Datasets}
+
+\subsection{VAIYAKARANA Benchmark}
+A significant contribution to Bangla grammar correction research is the VAIYAKARANA benchmark dataset developed by Bhattacharyya and Bhattacharya (2024) \cite{bhattacharyya2024vaiyakarana}. The dataset addresses the critical need for standardized evaluation resources in Bangla GEC. Key characteristics include:
+
+\begin{itemize}
+    \item Classification of errors into 5 broad classes and 12 finer categories
+    \item 92,830 grammatically incorrect sentences and 18,426 correct sentences
+    \item An expanded version containing 567,422 sentences with 227,119 erroneous samples
+    \item 619 human-generated sentences collected from native speaker essays
+\end{itemize}
+
+The VAIYAKARANA benchmark provides a systematic methodology for generating erroneous sentences that can be applied to other Indian languages, addressing the chronic shortage of annotated data for low-resource language research.
+
+\subsection{Wikipedia-Based Corpora}
+Wikipedia dumps have served as a primary source for building Bangla language corpora. The Bengali Wikipedia, available through Wikimedia's data dumps \cite{wikidumps2024}, contains over 169,000 articles that can be extracted and processed for NLP applications. Processing pipelines typically employ tools like WikiExtractor to remove MediaWiki markup and extract clean text \cite{abujar2019dataset}.
+
+\section{Existing Tools and Platforms}
+
+\subsection{OpenBangla Keyboard}
+The OpenBangla Keyboard \cite{openbangla2020} is an open-source, Unicode-compliant input method for GNU/Linux systems that includes spell-checking functionality. It offers:
+\begin{itemize}
+    \item Dictionary-based suggestions for phonetically similar words
+    \item Autocorrect for commonly mistyped words
+    \item Integration of common English words in Bangla context
+\end{itemize}
+
+While OpenBangla provides valuable input assistance, its spell checking capabilities are limited to dictionary lookup without context-sensitive correction.
+
+\subsection{Avro Keyboard}
+The Avro Keyboard \cite{avroproject2003}, developed by OmicronLab, pioneered phonetic typing for Bangla and included a built-in spell checker. Though widely used, Avro's spell checking relies on a static dictionary approach without statistical or contextual analysis.
+
+\subsection{Commercial Solutions}
+Commercial solutions like REVE NLP provide Bangla spell and grammar checking as part of enterprise offerings. However, these tools are not freely accessible for research or general use, limiting their contribution to the open-source ecosystem.
+
+\section{Technology Foundations}
+
+\subsection{Transformer Architecture}
+The transformer architecture introduced by Vaswani et al. (2017) has become the foundation for modern NLP systems \cite{vaswani2017attention}. The self-attention mechanism enables models to capture long-range dependencies in text, making them particularly effective for language understanding tasks.
+
+\subsection{BERT and Language Models}
+BERT (Bidirectional Encoder Representations from Transformers) \cite{devlin2019bert} introduced the concept of bidirectional pretraining, allowing models to understand context from both directions simultaneously. BanglaBERT \cite{bhattacharjee2022banglabert} extends this approach to Bangla, providing pretrained representations that can be fine-tuned for downstream tasks.
+
+\subsection{T5 and Text-to-Text Framework}
+The T5 model \cite{raffel2020t5} frames all NLP tasks as text-to-text problems, enabling a unified approach to diverse applications including grammar correction. BanglaT5 \cite{bhattacharjee2022banglat5} adapts this framework for Bangla, providing a foundation for sequence-to-sequence tasks.
+
+\section{Research Gap Analysis}
+Despite significant advances in Bangla NLP, several gaps remain:
+
+\begin{enumerate}
+    \item \textbf{Integrated Solutions}: Most existing works focus on either spell checking or grammar correction in isolation. There is a lack of integrated systems that address both problems cohesively.
+    
+    \item \textbf{Accessible Tools}: While research prototypes exist, few production-ready, open-source tools are available for practical use.
+    
+    \item \textbf{Dataset Availability}: Although benchmarks like VAIYAKARANA exist, processed datasets that include word frequency statistics and n-gram models suitable for statistical approaches remain scarce.
+    
+    \item \textbf{Hybrid Approaches}: The literature suggests that combining statistical methods with rule-based corrections can improve accuracy, but few implementations demonstrate this hybrid approach effectively.
+    
+    \item \textbf{Web-Based Accessibility}: Most tools are either command-line based or require installation, limiting accessibility for general users.
+\end{enumerate}
+
+\section{Positioning of Byakaron}
+The Byakaron project addresses these gaps by:
+
+\begin{itemize}
+    \item Developing a hybrid system that combines N-gram statistical models (bigram word pairs) with explicit rule-based corrections
+    \item Providing processed Wikipedia data including sentence corpora, word dictionaries, and word pair frequency statistics
+    \item Building reusable NLP tools for tokenization, normalization, and text processing
+    \item Creating an accessible web application using modern frameworks (Next.js, TypeScript)
+    \item Contributing to the open-source Bangla NLP ecosystem with well-documented, modular code
+\end{itemize}
+
+This positioning allows Byakaron to fill identified gaps while building upon the strong foundation established by prior research in the field.

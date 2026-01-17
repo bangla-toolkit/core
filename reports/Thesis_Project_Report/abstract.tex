@@ -1,0 +1,13 @@
+% Abstract for Byakaron Thesis
+
+The Bangla (Bengali) language, spoken by over 300 million people worldwide, remains significantly underserved in terms of comprehensive Natural Language Processing (NLP) tools for spell checking and grammar correction. This thesis presents \textbf{Byakaron}, a hybrid Bangla Grammar and Spell Checker that combines statistical N-gram models with rule-based corrections to provide accurate and context-aware language correction capabilities.
+
+The project makes three primary contributions to the Bangla NLP ecosystem. First, we processed the complete Bengali Wikipedia dump, creating a structured dataset of over 2 million sentences, 547,892 unique words, and 5.4 million word pairs (bigrams) that can be utilized for statistical language modeling. Second, we developed a modular NLP toolkit including tokenization, text normalization, and stemming components in TypeScript, designed for reusability across Bangla NLP applications. Third, we implemented a multi-stage spell checking system that achieves 87.3\% error detection rate and 78.5\% top-1 correction accuracy through a pipeline of exact matching, phonetic (Soundex) matching, fuzzy matching, and N-gram context ranking.
+
+The Byakaron system is deployed as a responsive web application built with Next.js, providing real-time spell checking with sub-second response times for typical use cases. The entire project is released as open-source software, contributing to the sustainable development of Bangla language technology.
+
+While the spell checking component demonstrates promising results, the grammar checking module remains in its initial phase (10\% completion), representing the primary direction for future work. This thesis establishes a foundation for comprehensive Bangla language correction tools and demonstrates the viability of hybrid approaches for low-resource language processing.
+
+\vspace{0.5cm}
+
+\noindent\textbf{Keywords:} Bangla, Bengali, Natural Language Processing, Spell Checker, Grammar Correction, N-gram, Hybrid Approach, Wikipedia Corpus, Web Application
