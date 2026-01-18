@@ -12,6 +12,43 @@
 %\RequirePackage{natbib}
 \RequirePackage[pages=some,placement=top]{background}
 
+% ============================================
+% BANGLA FONT SUPPORT (Conditional)
+% ============================================
+% Automatically detects XeLaTeX/LuaLaTeX vs pdfLaTeX
+% For Bangla text: use XeLaTeX compiler
+% ============================================
+\RequirePackage{ifxetex}
+\RequirePackage{ifluatex}
+
+\newif\ifxetexorluatex
+\ifxetex
+  \xetexorluatextrue
+\else
+  \ifluatex
+    \xetexorluatextrue
+  \else
+    \xetexorluatexfalse
+  \fi
+\fi
+
+\ifxetexorluatex
+  % XeLaTeX/LuaLaTeX: Full Bangla support
+  \RequirePackage{fontspec}
+  \RequirePackage{polyglossia}
+  \setmainlanguage{english}
+  \setotherlanguage{bengali}
+  \newfontfamily\bengalifont[Script=Bengali, Scale=1.0]{Noto Sans Bengali}
+  \newcommand{\bn}[1]{{\bengalifont\textbengali{#1}}}
+  % Monospace font with Bangla fallback for code listings
+  \setmonofont{DejaVu Sans Mono}[Scale=0.9]
+  \newfontfamily\codefont{DejaVu Sans Mono}[Scale=0.9]
+\else
+  % pdfLaTeX fallback: show placeholder for Bangla
+  \newcommand{\bn}[1]{\textit{[Bangla]}}
+  \newcommand{\codefont}{\ttfamily}
+\fi
+
 \def\squarebg{\backgroundsetup{scale=0.5,opacity=0.3,angle=0,hshift=10.0cm,vshift=-28.0cm,
     contents={\includegraphics[height=\paperheight]{Images/border.png}}}
     \BgThispage
@@ -52,19 +89,42 @@
 
 % set the default code style
 \lstdefinelanguage{latex} {morekeywords={def,begin,centering,end,xspace,hline,caption,label,textit,@article,@misc,cite,ref,chapter,section,subsection,subsubsection,include,toprule,midrule,bottomrule},morecomment=[l]{\%},}
+
+% Define JavaScript language for listings
+\lstdefinelanguage{JavaScript}{
+  keywords={break, case, catch, continue, debugger, default, delete, do, else, finally, for, function, if, in, instanceof, new, return, switch, this, throw, try, typeof, var, void, while, with, let, const, class, export, extends, import, super, true, false, null, undefined},
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  sensitive=true
+}
+
 \lstset{
     frame=single, % draw a frame at the top and bottom of the code block
     backgroundcolor=\color{GUBBlue!10}, 
     tabsize=4, % tab space width
-    showstringspaces=true, % don't mark spaces in strings
+    showstringspaces=false, % don't mark spaces in strings
     numbers=left, % display line numbers on the left
     commentstyle=\color{GUBRed},
     stringstyle=\color{GUBGreen},
-    basicstyle=\small\ttfamily, % basic font setting
+    breaklines=true, % enable automatic line breaking
+    breakatwhitespace=true, % break at whitespace
+    postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}, % continuation arrow
     emph={tabular,table,equation,figure,includegraphics,width,textwidth,title,author,journal,volume,pages,year,editor,url,howpublished,publisher},
     emphstyle={\color{YellowOrange}},
     keywordstyle=\color{blue},
+    extendedchars=true,
 }
+
+% Configure listings font based on compiler
+\ifxetexorluatex
+  % XeLaTeX: Use Bangla-capable font for code listings
+  \lstset{basicstyle=\footnotesize\bengalifont}
+\else
+  % pdfLaTeX: Use standard monospace
+  \lstset{basicstyle=\footnotesize\ttfamily}
+\fi
 
 \setlength{\topmargin}{0.0in}
 \setlength{\oddsidemargin}{0.33in}

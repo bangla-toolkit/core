@@ -87,7 +87,7 @@ The Prisma ORM implementation of the database schema consists of the following i
 
 \subsubsection{Sentences Table}
 Stores raw sentences extracted from data sources:
-\begin{lstlisting}[language=SQL, basicstyle=\small\ttfamily]
+\begin{lstlisting}[language=SQL, basicstyle=\footnotesize\ttfamily, breaklines=true]
 sentence (
     id          Int         PRIMARY KEY
     text        Text        NOT NULL
@@ -97,7 +97,7 @@ sentence (
 
 \subsubsection{Words Table}
 Contains unique Bangla words with their properties:
-\begin{lstlisting}[language=SQL, basicstyle=\small\ttfamily]
+\begin{lstlisting}[language=SQL, basicstyle=\footnotesize\ttfamily, breaklines=true]
 words (
     id          Int         PRIMARY KEY
     value       Text        UNIQUE NOT NULL
@@ -106,7 +106,7 @@ words (
 
 \subsubsection{Word Pairs Table}
 The statistical spell checking engine's skeleton, holding the frequencies of bigrams:
-\begin{lstlisting}[language=SQL, basicstyle=\small\ttfamily]
+\begin{lstlisting}[language=SQL, basicstyle=\footnotesize\ttfamily, breaklines=true]
 word_pairs (
     id          Int         PRIMARY KEY
     prev_id     Int         REFERENCES words(id)
@@ -126,7 +126,7 @@ This bigram model is useful in picking out the improbable sequences of words tha
 
 \subsubsection{Grammar Rules Table}
 Stores explicit correction rules:
-\begin{lstlisting}[language=SQL, basicstyle=\small\ttfamily]
+\begin{lstlisting}[language=SQL, basicstyle=\footnotesize\ttfamily, breaklines=true]
 grammar_rules (
     id              Int     PRIMARY KEY
     type            Varchar NOT NULL
@@ -156,7 +156,7 @@ The tokenization module breaks down text into sentences and words, simultaneousl
 
 The key tokenization steps are:
 \begin{enumerate}
-    \item \textbf{Sentence Splitting}: Splits text into sentences based on Bangla sentence-ending characters (।, ?, !)
+    \item \textbf{Sentence Splitting}: Splits text into sentences based on Bangla sentence-ending characters (\bn{।}, ?, !)
     \item \textbf{Word Tokenization}: Breaks down a sentence into words
     \item \textbf{Text Cleanup}: Removes URLs, brackets, and other non-Bangla characters, as well as significant whitespace
 \end{enumerate}

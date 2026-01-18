@@ -46,7 +46,7 @@ The tokenization module is found in \texttt{packages/core/tokenization/} and con
 \subsubsection{Sentence Tokenizer}
 The sentence tokenizer detects the sentence boundaries based on Bangla punctuation marks:
 \begin{itemize}
-    \item Dari (।) - Main sentence terminator
+    \item Dari (\bn{।}) - Main sentence terminator
     \item Question mark (?)
     \item Exclamation mark (!)
 \end{itemize}
@@ -62,7 +62,7 @@ The word tokenizer performs:
 \subsubsection{Text Cleanup}
 The common noises encountered in web-scraped data can be handled by using regular expression patterns:
 
-\begin{lstlisting}[language=JavaScript, basicstyle=\small\ttfamily, caption={Text cleanup patterns}]
+\begin{lstlisting}[language=JavaScript, basicstyle=\footnotesize\ttfamily, breaklines=true, caption={Text cleanup patterns}]
 // Remove URLs
 text = text.replace(/https?:\/\/[^\s]+/g, '');
 
@@ -89,10 +89,10 @@ The stemming module, depicted in Figure \ref{fig:stemmer}, is used to reduce Ban
 
 The stemmer deals with common suffixes of the Bangla language:
 \begin{itemize}
-    \item Verb inflections (-ছে, -েছে, -ত, -ল)
-    \item Case markers (-কে, -তে, -র, -এর)
-    \item Number markers (-গুলো, -রা)
-    \item Postpositions (-থেকে, -দ্বারা)
+    \item Verb inflections (\bn{-ছে, -েছে, -ত, -ল})
+    \item Case markers (\bn{-কে, -তে, -র, -এর})
+    \item Number markers (\bn{-গুলো, -রা})
+    \item Postpositions (\bn{-থেকে, -দ্বারা})
 \end{itemize}
 
 \section{Dataset Processing}
@@ -141,25 +141,25 @@ Analysis of word frequency in the corpus shows a standard Zipfian distribution, 
         \toprule
         \textbf{Rank} & \textbf{Word (Bangla)} & \textbf{Frequency} \\
         \toprule
-        1 & এবং (and) & 1,245,678 \\
+        1 & \bn{এবং} (and) & 1,245,678 \\
         \midrule
-        2 & এই (this) & 987,543 \\
+        2 & \bn{এই} (this) & 987,543 \\
         \midrule
-        3 & করে (does) & 876,234 \\
+        3 & \bn{করে} (does) & 876,234 \\
         \midrule
-        4 & তার (his/her) & 765,432 \\
+        4 & \bn{তার} (his/her) & 765,432 \\
         \midrule
-        5 & থেকে (from) & 654,321 \\
+        5 & \bn{থেকে} (from) & 654,321 \\
         \midrule
-        6 & যা (which) & 543,210 \\
+        6 & \bn{যা} (which) & 543,210 \\
         \midrule
-        7 & এক (one) & 432,109 \\
+        7 & \bn{এক} (one) & 432,109 \\
         \midrule
-        8 & হয় (is/happens) & 398,765 \\
+        8 & \bn{হয়} (is/happens) & 398,765 \\
         \midrule
-        9 & সালে (in year) & 356,789 \\
+        9 & \bn{সালে} (in year) & 356,789 \\
         \midrule
-        10 & তিনি (he/she) & 312,456 \\
+        10 & \bn{তিনি} (he/she) & 312,456 \\
         \bottomrule
     \end{tabular}
     \label{tab:freq}
@@ -179,7 +179,7 @@ The Prisma schema is defined in \texttt{packages/db/schemas/main.prisma}. The mo
 \subsection{Efficient Data Loading}
 Bulk loading of data uses the COPY protocol provided by PostgreSQL through \texttt{pg-copy-streams}:
 
-\begin{lstlisting}[language=JavaScript, basicstyle=\small\ttfamily, caption={Bulk loading using COPY protocol}]
+\begin{lstlisting}[language=JavaScript, basicstyle=\footnotesize\ttfamily, breaklines=true, caption={Bulk loading using COPY protocol}]
 import { pipeline } from 'stream';
 import copyFrom from 'pg-copy-streams';
 
@@ -220,27 +220,31 @@ The application has a simple and friendly interface:
 \subsection{API Design}
 The spell checking API is based on RESTful principles:
 
-\begin{lstlisting}[basicstyle=\small\ttfamily, caption={Spell check API endpoint}]
+\begin{lstlisting}[basicstyle=\footnotesize\codefont, 
+  caption={Spell check API endpoint},
+  breaklines=true]
 POST /api/check
 Content-Type: application/json
 
 Request:
 {
-  "text": "আমি ভাত খাববা"
+  "text": "ami bhat khabba"  // Bangla input
 }
 
 Response:
 {
   "corrections": [
     {
-      "word": "খাববা",
+      "word": "khabba",
       "position": 2,
-      "suggestions": ["খাব", "খাবো", "খাবে"],
+      "suggestions": ["khab", "khabo", "khabe"],
       "confidence": 0.95
     }
   ]
 }
 \end{lstlisting}
+
+\noindent\textbf{Example:} For Bangla input \bn{``আমি ভাত খাববা''} (ami bhat khabba - I will eat rice, with typo), the API returns suggestions \bn{``খাব'', ``খাবো'', ``খাবে''} for the misspelled word \bn{``খাববা''}.
 
 \section{Performance Analysis}
 

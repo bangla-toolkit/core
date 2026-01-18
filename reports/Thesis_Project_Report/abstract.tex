@@ -1,14 +1,12 @@
 \chapter*{Abstract}
 \addcontentsline{toc}{chapter}{Abstract}
 
-The Bangla or Bengali language, which is spoken by more than 300 million people around the globe, remains vastly under-served in terms of comprehensive Natural Language Processing (NLP) tools for spelling correction and grammar correction. This thesis offers a hybrid tool called \textbf{Byakaron} that combines the functionality of a grammar checker and spell checker in Bangla, using statistical N-gram models with rule-based correction to offer accurate and context-aware language correction capabilities.
+The Bangla language, spoken by over 300 million people, lacks comprehensive NLP tools for spelling and grammar correction. This thesis presents \textbf{Byakaron}, a hybrid spell and grammar checker combining statistical N-gram models with rule-based correction for context-aware language correction.
 
-The project has three main contributions to the Bangla NLP environment. First, we worked with the full Bengali Wikipedia dataset to create a structured data representation containing more than 2 million sentences, 547,892 distinct words, and 5.4 million word pairs (bigrams) that can be used for statistical language modeling. Second, we developed a modular toolkit for NLP, which includes modules such as tokenization, text normalization, and stemming components in TypeScript, made to be reusable in Bangla NLP applications. Third, we developed a multi-stage spell checking system that achieves 87.3\% error detection and 78.5\% top-1 error correction accuracy through a pipeline of exact matches, phonetic (Soundex) matches, fuzzy matches, and N-gram context ranking.
+The project makes three key contributions. First, we processed the Bengali Wikipedia dump to create a structured corpus of 2+ million sentences, 547,892 unique words, and 5.4 million bigrams for statistical language modeling. Second, we developed modular NLP tools including tokenization, normalization, and stemming components in TypeScript. Third, we built a multi-stage spell checker achieving 87.3\% error detection and 78.5\% top-1 correction accuracy through exact match, phonetic matching, fuzzy matching, and N-gram context ranking.
 
-The Byakaron System is implemented as a responsive web application developed using Next.js, offering real-time spell checking with sub-second response times for typical use cases. The entire project is released as open-source software, contributing to the sustainable development of Bangla language technology.
+Byakaron is implemented as a responsive Next.js web application with real-time spell checking. Although the spell checker shows promising results, grammar checking remains at 10\% completion for future work. The entire project is released as open-source software.
 
-Although the spell checking component shows encouraging results, the grammar checking module is still at the beginning phase (10\% completion), symbolizing the main direction of further research. This thesis provides the basis for comprehensive Bangla language correction tools and shows the viability of hybrid approaches for low-resource language processing.
+\vspace{0.3cm}
+\noindent\textbf{Keywords:} Bangla, NLP, Spell Checker, Grammar Correction, N-gram, Wikipedia Corpus
 
-\vspace{0.5cm}
-
-\noindent\textbf{Keywords:} Bangla, Bengali, Natural Language Processing, Spell Checker, Grammar Correction, N-gram, Hybrid Approach, Wikipedia Corpus, Web Application
