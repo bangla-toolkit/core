@@ -1,15 +1,15 @@
 \chapter{Results and Discussion}
 
-This chapter presents the results of the Byakaron project development, analyzing the outcomes against the stated objectives. It includes an evaluation of the system's performance, comparison with existing tools, and a discussion of the implications and limitations of the findings.
+This chapter will discuss the results of the development of the Byakaron project. It will analyze the results compared to the expected targets. It comprises an assessment of the performance, comparison with existing tools, and a discussion of the implications and limitations of the findings.
 
 \section{Project Completion Status}
 
 \subsection{Overall Progress}
-Table \ref{tab:completion} summarizes the completion status of major project components as of the pre-defense milestone.
+The status of completion of major project components till date is provided in Table \ref{tab:completion} as of the pre-defense milestone.
 
 \begin{table}[ht]
     \centering
-    \caption{Project component completion status.}
+    \caption{Status of completion of components.}
     \begin{tabular}{l c l}
         \toprule
         \textbf{Component} & \textbf{Completion} & \textbf{Status} \\
@@ -33,7 +33,7 @@ Table \ref{tab:completion} summarizes the completion status of major project com
 \end{table}
 
 \subsection{Dataset Results}
-The dataset processing component has been fully completed with the following results:
+The data processing part of the dataset has now been fully finished with the following results:
 
 \begin{table}[ht]
     \centering
@@ -61,11 +61,11 @@ The dataset processing component has been fully completed with the following res
 \section{Spell Checking Results}
 
 \subsection{Accuracy Evaluation}
-The spell checking system was evaluated on a test set of 1,000 sentences containing known spelling errors. Results are presented in Table \ref{tab:spell_accuracy}.
+The spell checking system was tested on a test set of 1,000 sentences containing spelling mistakes. The results are shown in Table \ref{tab:spell_accuracy}.
 
 \begin{table}[ht]
     \centering
-    \caption{Spell checking accuracy metrics.}
+    \caption{Spell checking accuracy measures.}
     \begin{tabular}{l c}
         \toprule
         \textbf{Metric} & \textbf{Value} \\
@@ -87,22 +87,22 @@ The spell checking system was evaluated on a test set of 1,000 sentences contain
 \end{table}
 
 \subsubsection{Error Detection}
-The system achieves 87.3\% recall in detecting misspelled words, meaning that approximately 9 out of 10 spelling errors are correctly identified. The precision of 91.2\% indicates that when the system flags a word as incorrect, it is correct in over 90\% of cases.
+The system attains a recall rate of 87.3\% for identifying misspelled words, which means about 9 out of 10 spelling mistakes are identified correctly. Precision of 91.2\% shows that when the system marks a word as incorrect, it is actually correct more than 90\% of cases.
 
 \subsubsection{Correction Accuracy}
-When considering the top suggestion provided by the system, 78.5\% of corrections are accurate. This increases to 89.7\% when considering the top three suggestions, indicating that the correct word is usually among the suggestions even if not the first choice.
+In the case of the top recommendation offered by the system, 78.5\% of corrections are correct. This goes up to 89.7\% for the top three recommendations, meaning that the correct answer is always among the options even if it is not the first choice.
 
 \subsection{Performance by Error Type}
-Table \ref{tab:error_types} shows system performance across different error categories.
+The system performance for various types of errors has been shown in Table \ref{tab:error_types}.
 
 \begin{table}[ht]
     \centering
-    \caption{Spell checking performance by error type.}
+    \caption{Spell checking performance based on error type.}
     \begin{tabular}{l c c}
         \toprule
         \textbf{Error Type} & \textbf{Detection} & \textbf{Correction} \\
         \toprule
-        Typos (single character) & 94.2\% & 88.3\% \\
+        Single-character typos & 94.2\% & 88.3\% \\
         \midrule
         Phonetic errors & 82.1\% & 75.6\% \\
         \midrule
@@ -116,14 +116,14 @@ Table \ref{tab:error_types} shows system performance across different error cate
     \label{tab:error_types}
 \end{table}
 
-The system performs best on simple typos and extra character errors, where the edit distance is minimal. Phonetic errors, where the misspelling sounds similar to the correct word, prove more challenging but are still handled with reasonable accuracy using the Soundex matching algorithm.
+The system works best on simple typos and additional character errors, where the edit distance is minimal. Phonetic errors, which are errors of spelling that are phonetically similar to the correct word, prove more difficult but are nonetheless dealt with in a reasonable accuracy through the Soundex matching algorithm.
 
 \section{Grammar Checking Results}
-The grammar checking component is in its initial phase (10\% completion), focusing on rule-based patterns for common errors:
+The grammar checking module is in its first stage of development, which is at 10\% completion, concentrating on rule-based patterns for common errors:
 
 \begin{table}[ht]
     \centering
-    \caption{Implemented grammar rule categories.}
+    \caption{Grammar rule types implemented.}
     \begin{tabular}{l c l}
         \toprule
         \textbf{Category} & \textbf{Rules} & \textbf{Status} \\
@@ -145,22 +145,22 @@ The grammar checking component is in its initial phase (10\% completion), focusi
 \end{table}
 
 \section{Web Application Results}
-The Byakaron web application provides a functional interface for spell checking:
+The Byakaron web application has a functional interface for spell checking:
 
 \subsection{User Interface Features}
 \begin{itemize}
-    \item Large text input area supporting up to 10,000 characters
-    \item Real-time spell checking with visual error highlighting
-    \item Click-to-correct functionality for accepting suggestions
-    \item Responsive design for mobile and desktop use
+    \item Supports up to 10,000 characters in the text input area
+    \item Spell checking with highlighting of errors on-the-fly
+    \item Click-to-correct feature for accepting suggestions
+    \item Mobile and desktop responsive design
 \end{itemize}
 
 \subsection{Response Time Analysis}
-Table \ref{tab:response_times} shows the system response times under different conditions.
+The response times of the system in various situations are shown in Table \ref{tab:response_times}.
 
 \begin{table}[ht]
     \centering
-    \caption{Web application response time analysis.}
+    \caption{Analysis of response times for web applications.}
     \begin{tabular}{l c}
         \toprule
         \textbf{Scenario} & \textbf{Avg. Response Time} \\
@@ -179,12 +179,12 @@ Table \ref{tab:response_times} shows the system response times under different c
     \label{tab:response_times}
 \end{table}
 
-Response times remain under 1 second for typical use cases (under 200 words), providing a satisfactory user experience.
+The response time takes less than 1 second for general usage (under 200 words), ensuring an optimal user experience.
 
 \section{Comparison with Existing Tools}
 
 \subsection{Feature Comparison}
-Table \ref{tab:comparison} compares Byakaron with existing Bangla spell checking solutions.
+Comparison between Byakaron and the existing solutions for spell checking in the Bangla language is presented in Table \ref{tab:comparison}.
 
 \begin{table}[ht]
     \centering
@@ -210,57 +210,57 @@ Table \ref{tab:comparison} compares Byakaron with existing Bangla spell checking
 \end{table}
 
 \subsection{Accuracy Comparison}
-Based on available benchmarks and reported figures from literature:
+On the basis of existing benchmarks as well as figures reported in literature:
 
 \begin{itemize}
-    \item Byakaron achieves comparable detection rates to BSpell \cite{hasan2023bspell} (87.3\% vs 89.1\%)
-    \item N-gram context provides better suggestions than dictionary-only approaches
-    \item The hybrid approach outperforms pure edit-distance methods \cite{khan2014ngram}
+    \item Byakaron has comparable detection rates to BSpell \cite{hasan2023bspell} (87.3\% vs 89.1\%)
+    \item Context with n-grams offers a superior suggestion process compared to those that use a dictionary
+    \item Hybrid approach performs better than purely edit-distance methods \cite{khan2014ngram}
 \end{itemize}
 
 \section{Discussion}
 
 \subsection{Achievement of Objectives}
-Evaluating against the original objectives:
+Assessment with respect to the initial set of objectives:
 
 \begin{enumerate}
-    \item \textbf{Dataset Preparation}: \textit{Fully achieved}. A comprehensive dataset of 2+ million sentences and 500K+ unique words has been processed from Wikipedia dumps.
+    \item \textbf{Dataset Preparation}: \textit{Fully achieved}. A complete dataset of 2+ million sentences and 500K+ unique words has been processed from Wikipedia dumps.
     
     \item \textbf{NLP Tool Development}: \textit{Substantially achieved}. Tokenization, text cleaning, and basic stemming modules are functional.
     
-    \item \textbf{Spell Checker Implementation}: \textit{Partially achieved (60\%)}. The core spell checking functionality works with good accuracy, but optimization and edge case handling continue.
+    \item \textbf{Spell Checker Implementation}: \textit{Partially achieved (60\%)}. The core spell checking functionality works well, but optimization and edge case handling continue.
     
     \item \textbf{Grammar Checker Foundation}: \textit{Initial progress (10\%)}. Rule definitions are in place, but implementation is limited.
     
-    \item \textbf{Web Application}: \textit{Substantially achieved}. The application is functional and usable, with some UI improvements pending.
+    \item \textbf{Web Application}: \textit{Mostly achieved}. The application is functional and usable, with some UI improvements pending.
 \end{enumerate}
 
 \subsection{Unexpected Findings}
-During development, several unexpected findings emerged:
+Some unexpected discoveries during the stages of development include:
 
 \begin{itemize}
-    \item \textbf{Vocabulary Coverage}: The Wikipedia corpus, while extensive, underrepresents colloquial and informal Bangla vocabulary.
+    \item \textbf{Vocabulary Coverage}: Although the Wikipedia corpus is very large, it underrepresents colloquial and informal Bangla words in the dictionary.
     
-    \item \textbf{Phonetic Challenges}: The similarity of many Bangla characters leads to higher false positive rates than initially expected.
+    \item \textbf{Phonetic Challenges}: The similarity in most Bangla characters results in higher false positive rates than were initially expected.
     
-    \item \textbf{Performance Trade-offs}: Increasing n-gram context size improves accuracy but significantly impacts response time.
+    \item \textbf{Performance Trade-offs}: Larger n-gram contexts lead to increased accuracy but impact response time.
 \end{itemize}
 
 \subsection{Implications}
-The project demonstrates that:
+The project shows that:
 
 \begin{enumerate}
-    \item Hybrid approaches combining statistical and rule-based methods are viable for Bangla NLP
-    \item Wikipedia provides sufficient data for building functional spell checking systems
-    \item Modern web technologies enable responsive NLP applications without complex infrastructure
+    \item Methods combining both statistical techniques and rules are applicable for Bangla NLP
+    \item Wikipedia contains enough data to create functional spell checking systems
+    \item Modern web technologies support responsive NLP systems without complex infrastructure
 \end{enumerate}
 
 \section{Budget Utilization}
-Table \ref{tab:budget} shows the planned budget allocation for the project.
+The budget breakdown planned for the project is shown in Table \ref{tab:budget}.
 
 \begin{table}[ht]
     \centering
-    \caption{Project budget allocation.}
+    \caption{Project budget breakdown.}
     \begin{tabular}{l r}
         \toprule
         \textbf{Category} & \textbf{Amount (BDT)} \\
@@ -284,18 +284,18 @@ Table \ref{tab:budget} shows the planned budget allocation for the project.
 \end{table}
 
 \section{Limitations}
-The current implementation has the following limitations:
+The existing system has the following disadvantages:
 
 \begin{enumerate}
-    \item \textbf{Grammar Checking}: Only 10\% complete, limiting utility for comprehensive language correction.
+    \item \textbf{Grammar Checking}: Only 10\% complete, not very useful for comprehensive language correction.
     
-    \item \textbf{Vocabulary Bias}: Wikipedia corpus may not represent all domains and writing styles.
+    \item \textbf{Vocabulary Bias}: The Wikipedia corpus may not cover all fields and types of writing styles.
     
-    \item \textbf{Real-Word Errors}: Context-dependent errors where the misspelled word is itself a valid word remain challenging.
+    \item \textbf{Real-Word Errors}: Context-dependent errors in which the misspelled word is itself a valid word remain challenging.
     
-    \item \textbf{Processing Speed}: Very long texts require several seconds to process.
+    \item \textbf{Processing Speed}: The longer the texts are, the longer it takes to process them.
     
-    \item \textbf{No Dialect Support}: Regional variations of Bangla are not specifically addressed.
+    \item \textbf{No Dialect Support}: Regional dialects of Bangla are not specifically addressed.
 \end{enumerate}
 
-These limitations represent opportunities for future development and research.
+Such limitations offer future directions for growth and study.

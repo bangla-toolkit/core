@@ -1,85 +1,85 @@
 \chapter{Introduction}
 
 \section{Background}
-The Bengali (Bangla) language, spoken by over 300 million people worldwide, ranks as the fifth most spoken language globally. Despite its widespread use, Bangla remains significantly underserved in terms of comprehensive Natural Language Processing (NLP) tools, particularly in the domains of spell checking and grammar correction \cite{bhattacharyya2024vaiyakarana}. The digital transformation has increased the necessity for robust language processing tools that can ensure accurate and error-free written communication in Bangla.
+The Bengali (Bangla) language, spoken by more than 300 million people around the globe, ranks as the fifth most spoken language in the world. However, despite its universality in usage, Bangla is still vastly underrepresented in terms of comprehensive Natural Language Processing (NLP) tools, especially when related to spell-checking and grammar correction \cite{bhattacharyya2024vaiyakarana}. The digital transformation has raised the need for robust language processing tools to ensure error-free written communication in Bangla.
 
-The primary challenges in developing Bangla NLP tools stem from the language's morphological complexity, extensive vocabulary, and the inherent difficulties in typing using English keyboards. Bangla contains numerous compound letters, similarly pronounced characters, and context-dependent grammatical rules that make automatic error detection and correction particularly challenging \cite{hasan2023bspell}. Furthermore, the lack of comprehensive, high-quality datasets for training statistical and machine learning models has hindered progress in this domain.
+The major hurdles in the creation of Bangla NLP systems arise from the language's morphological complexity, lexical breadth, and inherent difficulties related to typing on English keyboards. Bangla has many compound words, similarly pronounced letter characters, and grammatical rules depending on context, such that automatic error detection and correction are particularly difficult \cite{hasan2023bspell}. Furthermore, the absence of comprehensive, high-quality data available for statistical and machine learning models has stifled further development in this area.
 
-Prior attempts at developing Bangla spell checkers have primarily relied on either rule-based approaches or basic edit distance algorithms \cite{khan2014ngram}. While these methods provide some level of correction capability, they often fail to handle context-sensitive errors and struggle with the inflectional nature of Bangla vocabulary. Recent advances in deep learning and transformer-based models have opened new possibilities for more accurate and context-aware language correction systems \cite{devlin2019bert, raffel2020t5}.
+Previous attempts to create a Bangla spell checker were based mainly on either rule-based methods or simple edit distance algorithms \cite{khan2014ngram}. Although these methods offer some degree of correction ability, they fail in dealing with context-sensitive errors and struggle with the inflectional nature of Bangla vocabulary. Current breakthroughs in deep learning and transformer models are ushering in new possibilities for more accurate and context-aware language correction systems \cite{devlin2019bert, raffel2020t5}.
 
 \section{Problem Statement}
-The current landscape of Bangla language processing tools presents several critical gaps that this project aims to address. Despite being one of the most spoken languages in the world, Bangla lacks comprehensive and freely available spell checking and grammar correction systems that can match the accuracy and reliability of tools available for languages like English.
+The present state of Bangla language processing tools has several crucial gaps that this project seeks to fill. Despite being one of the most widely spoken languages in the world, Bangla lacks comprehensive and freely available spell checking and grammatical correction systems able to attain the level of accuracy and reliability of tools available for languages like English.
 
-The key problems identified are:
+The important issues that emerged are:
 \begin{enumerate}
-    \item \textbf{Inadequate Spell Checking Resources}: Existing Bangla spell checkers either rely on limited dictionaries or fail to provide context-sensitive suggestions, resulting in poor correction accuracy \cite{pal2021ngram}.
+    \item \textbf{Inadequate Spell Checking Resources}: Available Bangla spell checker algorithms either lack some words or function with reference to less detailed dictionaries without presenting context-dependent proposals, resulting in poor correction accuracy \cite{pal2021ngram}.
     
-    \item \textbf{Absence of Grammar Correction Tools}: While some spell checking solutions exist, comprehensive grammar correction tools for Bangla are virtually non-existent in the open-source domain \cite{miah2023t5}.
+    \item \textbf{Lack of Grammar Correction Tools}: While many spell checking packages exist, grammar correction tools that are comprehensive in nature for the Bangla language are virtually non-existent in the open-source community \cite{miah2023t5}.
     
-    \item \textbf{Lack of Quality Datasets}: The development of modern NLP systems requires large, well-structured datasets. The absence of properly processed Bangla corpora has been a significant barrier to research and development \cite{wikidumps2024}.
+    \item \textbf{Lack of Quality Datasets}: The design of modern NLP systems requires large, well-structured datasets. The lack of properly processed Bangla corpora has been a major hindrance to research and development \cite{wikidumps2024}.
     
-    \item \textbf{Fragmented Tool Ecosystem}: The existing Bangla NLP tools are scattered, incompatible, and lack standardization, making it difficult for developers and researchers to build upon previous work \cite{sarker2021bnlp}.
+    \item \textbf{Fragmented Tool Ecosystem}: The current set of Bangla NLP tools is fragmented, with incompatibilities and lack of standardization, which could cause difficulties for developers and researchers to build on previous research \cite{sarker2021bnlp}.
 \end{enumerate}
 
-These challenges motivate the development of a comprehensive, integrated solution that addresses both spell checking and grammar correction while contributing reusable datasets and tools to the Bangla NLP community.
+All these make the need to implement an effective and integrated solution that spans both spell checking and grammar correction, and contributes accessible reusable datasets and tools within the Bangla NLP community.
 
 \section{Purpose of the Project}
-The primary objective of this thesis project is to design and develop \textbf{Byakaron}, a comprehensive Bangla Grammar and Spell Checker system. The project aims to contribute to the Bangla NLP ecosystem by providing:
+The goal of the thesis project is to develop a program called \textbf{Byakaron}, a comprehensive Bangla Grammar and Spell Checker software. The proposed work will aim to contribute to the Bangla NLP community as follows:
 
 \subsection{Objectives}
 \begin{enumerate}
-    \item \textbf{Dataset Preparation}: Create a properly processed and structured Bangla language dataset extracted from Wikipedia dumps, including sentence-level data, word frequencies, and n-gram (word pair) statistics.
+    \item \textbf{Dataset Preparation}: Prepare properly processed and structured Bangla language dataset from the Wikipedia dumps, ranging from sentence-level data, word frequencies, and n-gram statistics.
     
-    \item \textbf{NLP Tool Development}: Develop a suite of reusable NLP tools for Bangla language processing, including tokenization, normalization, and text cleaning utilities.
+    \item \textbf{NLP Tool Development}: Develop an inventory of reusable NLP tools for Bangla Natural Language Processing, including tokenization, normalization, and text cleaning utilities.
     
-    \item \textbf{Spell Checker Implementation}: Build a hybrid spell checking system that combines statistical N-gram models with rule-based corrections to achieve high accuracy in error detection and suggestion.
+    \item \textbf{Spell Checker Implementation}: Develop a hybrid spell checker that integrates statistical N-grams with rule-based error correction to accomplish high accuracy for error detection and suggestion.
     
-    \item \textbf{Grammar Checker Foundation}: Establish the foundation for a rule-based grammar correction system that can be extended in future work.
+    \item \textbf{Grammar Checker Foundation}: Establish the foundation for a grammar correction system that can be extended in future endeavors.
     
-    \item \textbf{Web Application}: Develop an accessible, user-friendly web application that allows users to check and correct their Bangla text in real-time.
+    \item \textbf{Web Application}: Build an accessible and user-friendly web application that enables customers to verify and edit their Bangla text in real time.
 \end{enumerate}
 
 \subsection{Scope and Limitations}
-This project focuses on:
+This project aims at:
 \begin{itemize}
-    \item Processing Bengali Wikipedia dumps as the primary data source
-    \item Implementing spell checking with approximately 60\% completion status
-    \item Establishing grammar checking infrastructure with approximately 10\% completion status
-    \item Building a web-based interface using modern technologies (Next.js, TypeScript)
+    \item Working with Bengali Wikipedia dumps as the prime dataset
+    \item Spell checking with around 60\% completion status
+    \item Development of grammar checking infrastructure with around 10\% completion status
+    \item Creating a web interface using modern technology stacks (Next.js, TypeScript)
 \end{itemize}
 
-The current scope does not include:
+The present coverage fails to include:
 \begin{itemize}
-    \item Mobile application development
-    \item Real-time collaborative editing features
-    \item Support for regional Bengali dialects
-    \item Integration with third-party writing platforms
+    \item iOS app development
+    \item Facilities for collaborative editing in real-time
+    \item Regional Bengali dialects support
+    \item Compatibility with external writing tools
 \end{itemize}
 
 \section{Significance of the Study}
-This project contributes to the Bangla NLP ecosystem in several significant ways:
+This work is significant to the Bangla NLP community for a number of reasons:
 
-\textbf{Academic Contribution}: By providing a well-documented hybrid approach that combines N-gram statistical models with rule-based corrections, this work serves as a reference for future research in low-resource language processing.
+\textbf{Academic Contribution}: By presenting a well-documented hybrid solution that combines N-gram statistical models and rule-based correction, this work serves as a resource for further research in low-resource languages.
 
-\textbf{Dataset Contribution}: The processed Wikipedia dataset, including word pairs and frequency statistics, will be made available to the research community, enabling further development in Bangla NLP.
+\textbf{Data Contribution}: The processed Wikipedia dataset, including word pairs and frequency statistics, will be accessible to the research community, hence enabling further development in Bangla NLP.
 
-\textbf{Practical Application}: The web application developed as part of this project provides immediate practical value to writers, students, and professionals who communicate in Bangla.
+\textbf{Practical Application}: The web application designed within the scope of this research is of direct application to writers, students, and professionals who communicate in Bangla.
 
-\textbf{Tool Standardization}: The modular architecture of the project, with separate packages for core NLP functionality, database operations, and dataset processing, promotes code reuse and standardization in the Bangla NLP community.
+\textbf{Tool Standardization}: The modular nature of the project, consisting of independent packages for NLP tasks, database processing, and working with datasets, encourages code reusability and standardization in the Bangla NLP community.
 
 \section{Organization of the Report}
-This thesis report is organized as follows:
+This thesis report has the following organization:
 
-\textbf{Chapter 1 (Introduction)}: Provides the background, problem statement, objectives, and significance of the study.
+\textbf{Chapter 1 (Introduction)}: This chapter includes background and problem statement, objectives, and significance of the study.
 
-\textbf{Chapter 2 (Literature Review)}: Reviews existing research and tools related to Bangla spell checking and grammar correction, identifying gaps in current approaches.
+\textbf{Chapter 2 (Literature Review)}: This involves analyzing existing studies and resources pertaining to Bangla spell checking and grammar correction, identifying gaps in existing approaches.
 
-\textbf{Chapter 3 (Methodology)}: Describes the research design, system architecture, data model, and algorithmic approaches used in the project.
+\textbf{Chapter 3 (Methodology)}: This chapter outlines the research design, system architecture, data model, and algorithmic methods employed in the project.
 
-\textbf{Chapter 4 (Data Presentation and Analysis)}: Presents the implementation details, technology stack, and data processing pipelines.
+\textbf{Chapter 4 (Data Presentation and Analysis)}: This chapter presents the implementation details, technology stack, and data processing pipelines.
 
-\textbf{Chapter 5 (Engineering Considerations)}: Discusses the societal, environmental, and ethical considerations of the project.
+\textbf{Chapter 5 (Engineering Considerations)}: Explains the societal, environmental, and ethical considerations involved in the project.
 
-\textbf{Chapter 6 (Results and Discussion)}: Presents the project outcomes, testing results, and analysis of the developed system.
+\textbf{Chapter 6 (Results and Discussion)}: This chapter involves the presentation of the project outcomes, testing results, and analysis of the developed system.
 
-\textbf{Chapter 7 (Conclusion)}: Summarizes the achievements, discusses limitations, and proposes future research directions.
+\textbf{Chapter 7 (Conclusion)}: Summarizes the achievements, discusses limitations, and offers recommendations for future study.

@@ -1,22 +1,22 @@
 \chapter{Methodology}
 
-This chapter describes the systematic and structured approach used in the development of Byakaron. It outlines the specific procedures, techniques, and tools employed to address the research objectives. The methodology provides a clear roadmap for the development process, ensuring reliability and replicability of the work.
+This chapter describes the systematic and structured process employed in the development of Byakaron. It highlights the processes, methodologies, and instruments used for the purpose of fulfilling the research objectives. The methodology offers a clear roadmap for the development process, ensuring reliability and replicability of the work.
 
 \section{Research Design}
-The development of Byakaron follows an applied research methodology combining empirical data collection with software engineering practices. The project employs a hybrid approach that integrates:
+The Byakaron project is based on an applied research process involving empirical data gathering using software engineering methods. The project uses a hybrid approach which combines:
 
 \begin{enumerate}
-    \item \textbf{Statistical Methods}: N-gram language models (specifically bigram) for probability-based word correction
+    \item \textbf{Statistical Methods}: N-gram models of language to compute probability-based word correction
     \item \textbf{Rule-Based Methods}: Explicit correction rules for known error patterns
     \item \textbf{Database-Driven Design}: Structured storage of language data for efficient querying
 \end{enumerate}
 
-This hybrid methodology draws upon both the statistical robustness of n-gram models \cite{khan2014ngram, pal2021ngram} and the precision of rule-based systems for handling well-defined error patterns.
+This hybrid approach combines the strengths of n-gram in its statistical robustness models \cite{khan2014ngram, pal2021ngram} and the accuracy of rule-based systems in dealing with well-defined error patterns.
 
 \section{System Architecture}
 
 \subsection{Monorepo Structure}
-The project is organized as a monorepo managed using Bun workspaces, enabling efficient code sharing and dependency management across multiple packages. The architecture is visualized in Figure \ref{fig:sys_arch}.
+The code is organized in a monorepo fashion using Bun workspaces, allowing code sharing and dependency management across multiple packages. The architecture is depicted in Figure \ref{fig:sys_arch}.
 
 \begin{figure}[ht]
     \centering
@@ -25,12 +25,12 @@ The project is organized as a monorepo managed using Bun workspaces, enabling ef
     \label{fig:sys_arch}
 \end{figure}
 
-The directory structure consists of:
+The directory structure includes:
 \begin{itemize}
     \item \texttt{apps/}: User-facing applications
     \begin{itemize}
         \item \texttt{byakoron}: Main web interface (Next.js)
-        \item \texttt{training}: Model training scripts
+        \item \texttt{training}: Training scripts for model training
     \end{itemize}
     \item \texttt{packages/}: Shared libraries
     \begin{itemize}
@@ -43,52 +43,52 @@ The directory structure consists of:
 \end{itemize}
 
 \subsection{Data Flow Architecture}
-The system follows a pipeline architecture where data flows from raw sources through multiple processing stages:
+The system uses a pipeline architecture in which the data passes from raw sources through various processing steps:
 
 \begin{enumerate}
-    \item \textbf{Extract}: Raw text is downloaded from data sources (Wikipedia dumps, news websites)
-    \item \textbf{Transform}: Text is cleaned, tokenized, and processed into structured formats
-    \item \textbf{Load}: Processed data is efficiently inserted into PostgreSQL
-    \item \textbf{Serve}: The web application queries the database to provide correction suggestions
+    \item \textbf{Extract}: Raw texts are downloaded from data sources such as Wikipedia dumps and news websites
+    \item \textbf{Transform}: The text is cleaned, tokenized, and converted into structured formats
+    \item \textbf{Load}: The processed data is efficiently loaded into PostgreSQL
+    \item \textbf{Serve}: The web application queries the database in order to supply correction suggestions for the user's input
 \end{enumerate}
 
-Figure \ref{fig:data_pipeline} illustrates the data pipeline from extraction through the Byakaron engine.
+The data flow process, as shown by Figure \ref{fig:data_pipeline}, continues through the Byakaron engine.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth]{Visuals/data_pipeline.png}
-    \caption{Data Pipeline showing the flow from Bangla Wikipedia through NLP processing to the database and correction engine.}
+    \caption{Data Pipeline illustrating the flow of data from Bangla Wikipedia to NLP processing to the database and correction engine.}
     \label{fig:data_pipeline}
 \end{figure}
 
 \section{Data Model Design}
 
 \subsection{Entity-Relationship Design}
-The database schema is designed to support both statistical spell checking (through n-gram models) and rule-based corrections. Figure \ref{fig:er_diagram} shows the entity-relationship diagram.
+The database schema is designed to enable statistical spell checking via n-gram models and rule-based corrections. In Figure \ref{fig:er_diagram}, the entity-relationship diagram is shown.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth]{Visuals/er_diagram.png}
-    \caption{Entity-Relationship Diagram showing the database schema for Byakaron.}
+    \caption{Entity Relationship Diagram illustrating the database schema for Byakaron.}
     \label{fig:er_diagram}
 \end{figure}
 
-The detailed schema with word pairs and grammar rules is shown in Figure \ref{fig:er_detailed}.
+The detailed schema with word pairs and grammar rules is presented in Figure \ref{fig:er_detailed}.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.85\textwidth]{Visuals/er_diagram_detailed.png}
-    \caption{Detailed database schema showing relationships between words, word\_pairs, rules, and grammar\_rules tables.}
+    \caption{Detailed schema of the database, highlighting relations between words, word\_pairs, rules, and grammar\_rules tables.}
     \label{fig:er_detailed}
 \end{figure}
 
 \subsection{Core Tables}
-The database schema implemented using Prisma ORM includes the following key tables:
+The Prisma ORM implementation of the database schema consists of the following important tables:
 
 \subsubsection{Sentences Table}
 Stores raw sentences extracted from data sources:
 \begin{lstlisting}[language=SQL, basicstyle=\small\ttfamily]
-sentences (
+sentence (
     id          Int         PRIMARY KEY
     text        Text        NOT NULL
     created_at  Timestamp   DEFAULT now()
@@ -105,7 +105,7 @@ words (
 \end{lstlisting}
 
 \subsubsection{Word Pairs Table}
-The backbone of the statistical spell checking system, storing bigram frequencies:
+The statistical spell checking engine's skeleton, holding the frequencies of bigrams:
 \begin{lstlisting}[language=SQL, basicstyle=\small\ttfamily]
 word_pairs (
     id          Int         PRIMARY KEY
@@ -116,13 +116,13 @@ word_pairs (
 )
 \end{lstlisting}
 
-The \texttt{word\_pairs} table enables bigram probability calculations. Given a word sequence $w_1, w_2$, the probability of $w_2$ following $w_1$ is computed as:
+The \texttt{word\_pairs} table facilitates calculations of probabilities for bigrams. For a word sequence $w_1, w_2$, the probability of $w_2$ given $w_1$ is calculated as:
 \begin{equation}
     P(w_2 | w_1) = \frac{Count(w_1, w_2)}{Count(w_1)}
     \label{eq:bigram}
 \end{equation}
 
-This bigram model helps identify unlikely word sequences that may indicate spelling errors.
+This bigram model is useful in picking out the improbable sequences of words that could reveal misspelling errors.
 
 \subsubsection{Grammar Rules Table}
 Stores explicit correction rules:
@@ -145,68 +145,68 @@ rules (
 \section{Core NLP Algorithms}
 
 \subsection{Tokenization}
-The tokenization module splits text into sentences and words while performing cleanup operations. The process is illustrated in Figure \ref{fig:nlp_modules}.
+The tokenization module breaks down text into sentences and words, simultaneously performing cleanup operations. This is shown in Figure \ref{fig:nlp_modules}.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.95\textwidth]{Visuals/nlp_modules.png}
-    \caption{NLP Processing Modules: Normalization, Tokenization, POS Tagging, and NER Tagging.}
+    \caption{NLP Processing Modules: Normalization, Tokenization, POS and NER Tagging.}
     \label{fig:nlp_modules}
 \end{figure}
 
-Key tokenization operations include:
+The key tokenization steps are:
 \begin{enumerate}
-    \item \textbf{Sentence Splitting}: Divides text at sentence boundaries (Bangla sentence-ending characters: ।, ?, !)
-    \item \textbf{Word Tokenization}: Splits sentences into individual words
-    \item \textbf{Text Cleanup}: Removes non-Bangla characters, URLs, brackets, and extraneous whitespace
+    \item \textbf{Sentence Splitting}: Splits text into sentences based on Bangla sentence-ending characters (।, ?, !)
+    \item \textbf{Word Tokenization}: Breaks down a sentence into words
+    \item \textbf{Text Cleanup}: Removes URLs, brackets, and other non-Bangla characters, as well as significant whitespace
 \end{enumerate}
 
-The cleanup process uses regular expressions to isolate pure Bangla text:
+The cleanup operation uses regular expressions to segregate the pure Bangla text:
 \begin{itemize}
     \item Removal of URLs and web links
     \item Removal of English characters and numbers
-    \item Removal of brackets and their contents
+    \item Erasure of brackets and the material within them
     \item Normalization of Unicode characters
 \end{itemize}
 
 \subsection{Spell Checking Algorithm}
-The spell checking engine employs a multi-stage approach as shown in Figure \ref{fig:spell_engine}.
+The spell checking engine uses a multi-step process, which is depicted in Figure \ref{fig:spell_engine}.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth]{Visuals/spell_engine_flow.png}
-    \caption{Spell Checker Engine showing the flow from Bangla input through tokenization to correction suggestions.}
+    \caption{Spell Checker Engine depicting the flow of Bangla words from tokenization to correction suggestions.}
     \label{fig:spell_engine}
 \end{figure}
 
-The spell checking process follows these stages:
+The spell checking procedure involves the following stages:
 
 \subsubsection{Stage 1: Exact Match}
-First, words are checked against the dictionary (words table) for exact matches. Words with exact matches are considered correctly spelled.
+First, it checks for exact word matches with the dictionary, or words table. The words that have exact matches are regarded as spelled correctly.
 
 \subsubsection{Stage 2: Soundex Match}
-For words not found in the dictionary, a phonetic matching algorithm identifies similarly sounding words. This is particularly important for Bangla where multiple characters can produce similar sounds.
+For words which are not found in the dictionary, a phonetic matching algorithm is used to identify similarly sounding words. This is especially important for the Bangla language as there are many similarly pronounced letters.
 
 \subsubsection{Stage 3: Fuzzy Match}
-If no soundex match is found, fuzzy string matching using edit distance identifies potential corrections. The edit distance $d(a, b)$ between two words is defined as:
+In case of no soundex match, fuzzy string matching by edit distance reveals potential corrections. The edit distance $d(a, b)$ from two words is defined as:
 \begin{equation}
     d(a, b) = \min(insertions + deletions + substitutions)
     \label{eq:edit_distance}
 \end{equation}
 
-Words within a threshold edit distance are presented as suggestions, ranked by their frequency in the corpus.
+Suggestions based on words within the edit distance are displayed based on their frequency in the corpus.
 
 \subsubsection{Stage 4: N-gram Context}
-Finally, the bigram model from \texttt{word\_pairs} is used to rank suggestions based on contextual probability. Given candidate corrections $C = \{c_1, c_2, ..., c_n\}$ for a word following word $w_{prev}$:
+Lastly, the bigram model obtained from \texttt{word\_pairs} is employed to rank suggestions on contextual probability. Given candidate corrections $C = \{c_1, c_2, ..., c_n\}$ for a word following word $w_{prev}$:
 \begin{equation}
     best\_candidate = \arg\max_{c \in C} P(c | w_{prev})
     \label{eq:context_ranking}
 \end{equation}
 
-\section{Data Collection and Processing}
+\section{Data Acquisition and Processing}
 
 \subsection{Data Sources}
-Figure \ref{fig:data_sources} lists the primary data sources used for building the corpus.
+The main sources for the data used in the corpus are listed in Figure \ref{fig:data_sources}.
 
 \begin{figure}[ht]
     \centering
@@ -215,45 +215,45 @@ Figure \ref{fig:data_sources} lists the primary data sources used for building t
     \label{fig:data_sources}
 \end{figure}
 
-The primary data source is the Bengali Wikipedia dump (\texttt{bnwiki-latest-pages-articles.xml.bz2}) \cite{wikidumps2024}, which provides:
+The main data source is the Bengali Wikipedia dump (\texttt{bnwiki-latest-pages-articles.xml.bz2}) \cite{wikidumps2024}, which provides:
 \begin{itemize}
-    \item Clean, editorially reviewed text
-    \item Wide vocabulary coverage across topics
-    \item Consistent writing quality
+    \item Clean, edited, and refereed text
+    \item Broad vocabulary coverage for topics
+    \item Writing quality consistency
 \end{itemize}
 
 \subsection{ETL Pipeline}
-The Extract-Transform-Load (ETL) pipeline is implemented in the \texttt{packages/dataset} package:
+The ETL process is implemented in the \texttt{packages/dataset} package:
 
 \subsubsection{Extract Phase}
 \begin{itemize}
-    \item Download Wikipedia XML dumps
-    \item Parse XML to extract article content
-    \item Remove MediaWiki markup and templates
+    \item Download Wikipedia XML files
+    \item XML parsing for article extraction
+    \item Strip MediaWiki markup and templates
 \end{itemize}
 
 \subsubsection{Transform Phase}
 \begin{itemize}
     \item Clean text using regex-based rules
-    \item Tokenize into sentences and words
-    \item Generate word frequency counts
-    \item Create bigram (word pair) statistics
+    \item Tokenization for sentences and words
+    \item Word frequency analysis
+    \item Calculate bigram statistics for words
     \item Apply normalization rules
 \end{itemize}
 
 \subsubsection{Load Phase}
 \begin{itemize}
     \item Bulk insert using \texttt{pg-copy-streams} for efficiency
-    \item Build indexes for fast querying
-    \item Validate data integrity
+    \item Create indexes to support quick querying
+    \item Data integrity validation
 \end{itemize}
 
 \section{Technology Stack}
-Table \ref{tab:tech_stack} summarizes the technology choices for the project.
+The various choices of technology in the project are summarized in Table \ref{tab:tech_stack}.
 
 \begin{table}[ht]
     \centering
-    \caption{Technology stack used in Byakaron development.}
+    \caption{Technology stack used for Byakaron development.}
     \begin{tabular}{l l l}
         \toprule
         \textbf{Component} & \textbf{Technology} & \textbf{Purpose} \\
@@ -275,21 +275,22 @@ Table \ref{tab:tech_stack} summarizes the technology choices for the project.
 \end{table}
 
 \section{Ethical Considerations}
-The project adheres to ethical standards in data collection and processing:
+The project follows all the ethics in data collection and processing:
 
 \begin{itemize}
-    \item \textbf{Data Sources}: All data is collected from publicly available sources (Wikipedia) under Creative Commons licenses
-    \item \textbf{Open Source}: The project is developed as open-source software, promoting transparency and community contribution
-    \item \textbf{Privacy}: No personal user data is collected or stored by the application
-    \item \textbf{Accessibility}: The web application is designed to be accessible to users with varying technical abilities
+    \item \textbf{Data Sources}: The data is all sourced from publicly available sources such as Wikipedia under Creative Commons licenses
+    \item \textbf{Open Source}: The software is developed on the principles of open source, which helps to encourage transparency and community contribution
+    \item \textbf{Privacy}: There is no collection or storage of personal data from the user by the application
+    \item \textbf{Accessibility}: This web application has been developed to be accessible to people with different levels of technical skill
 \end{itemize}
 
 \section{Limitations}
-The methodology has the following limitations:
+The drawbacks of the proposed methodology are the following:
 
 \begin{itemize}
-    \item \textbf{Data Bias}: Wikipedia may not represent colloquial or informal Bangla usage
-    \item \textbf{Computational Resources}: Large-scale data processing requires significant computing power
-    \item \textbf{Grammar Coverage}: Rule-based grammar checking has limited coverage compared to machine learning approaches
-    \item \textbf{Domain Specificity}: The model may perform differently across domains (academic, creative, technical writing)
+    \item \textbf{Data Bias}: Wikipedia might not capture colloquial Bangla language usage
+    \item \textbf{Computational Resources}: Massive data processing demands extensive processing power
+    \item \textbf{Grammar Coverage}: Grammar checking using grammar rules has low coverage compared with machine learning methods
+    \item \textbf{Domain Specificity}: The machine learning model might behave differently for different domains (academic writing, creative writing, technical writing)
 \end{itemize}
+

@@ -1,25 +1,25 @@
 \chapter{Data Presentation and Analysis}
 
-This chapter presents the implementation details of Byakaron, including the technology stack, data processing pipelines, and the practical outputs of the development process. The data collected during the project is organized, analyzed, and presented to demonstrate the system's capabilities and the quality of the processed datasets.
+This chapter will discuss the implementation of Byakaron, including the technology stack, data processing pipelines, and the real-world applications of the development process. The data collected from this project will be organized and presented for the purpose of demonstrating the capabilities of the system, as well as the quality of the processed data.
 
 \section{Technology Implementation}
 
 \subsection{Development Environment}
-The project leverages modern JavaScript/TypeScript tooling for efficient development:
+The project makes extensive use of modern JavaScript/TypeScript tooling to enable efficient development:
 
 \begin{itemize}
-    \item \textbf{Bun}: A fast JavaScript runtime that provides significant performance improvements over Node.js for both development and production
-    \item \textbf{TypeScript}: Ensures type safety across the entire codebase, reducing runtime errors
-    \item \textbf{Prisma}: Provides type-safe database access and automatic migration management
-    \item \textbf{Next.js 14+}: Powers the web application with App Router for modern React patterns
+    \item \textbf{Bun}: A fast JavaScript runtime that offers substantial performance improvements over Node.js for development and production purposes
+    \item \textbf{TypeScript}: A statically typed language that ensures type safety throughout the application, resulting in less runtime mistakes
+    \item \textbf{Prisma}: Offers type-safe database access and automatic migration management
+    \item \textbf{Next.js 14+}: Enabling the web app with App Router in modern React patterns
 \end{itemize}
 
 \subsection{Package Structure}
-The monorepo contains the following packages, each serving a specific purpose:
+The monorepo holds the following packages, each of which is used for a distinct purpose:
 
 \begin{table}[ht]
     \centering
-    \caption{Package structure and responsibilities in the Byakaron monorepo.}
+    \caption{Monorepo package structure and responsibilities in Byakaron.}
     \begin{tabular}{l l}
         \toprule
         \textbf{Package} & \textbf{Responsibility} \\
@@ -28,7 +28,7 @@ The monorepo contains the following packages, each serving a specific purpose:
         \midrule
         \texttt{packages/db} & Prisma schema, database connection, migrations \\
         \midrule
-        \texttt{packages/dataset} & ETL pipelines for Wikipedia processing \\
+        \texttt{packages/dataset} & Data extraction and transformation pipelines for Wikipedia data \\
         \midrule
         \texttt{apps/byakoron} & Next.js web application \\
         \midrule
@@ -41,12 +41,12 @@ The monorepo contains the following packages, each serving a specific purpose:
 \section{Core NLP Implementation}
 
 \subsection{Tokenization Module}
-The tokenization module, located in \texttt{packages/core/tokenization/}, implements Bangla-specific text processing:
+The tokenization module is found in \texttt{packages/core/tokenization/} and contains Bangla-specific text processing:
 
 \subsubsection{Sentence Tokenizer}
-The sentence tokenizer identifies sentence boundaries using Bangla punctuation marks:
+The sentence tokenizer detects the sentence boundaries based on Bangla punctuation marks:
 \begin{itemize}
-    \item Dari (।) - Primary sentence terminator
+    \item Dari (।) - Main sentence terminator
     \item Question mark (?)
     \item Exclamation mark (!)
 \end{itemize}
@@ -54,13 +54,13 @@ The sentence tokenizer identifies sentence boundaries using Bangla punctuation m
 \subsubsection{Word Tokenizer}
 The word tokenizer performs:
 \begin{enumerate}
-    \item Whitespace-based splitting
-    \item Removal of punctuation attached to words
+    \item Whitespace splitting
+    \item Deleting punctuation marks affixed to words
     \item Unicode normalization (NFC form)
 \end{enumerate}
 
 \subsubsection{Text Cleanup}
-Regular expression patterns handle common noise in web-scraped text:
+The common noises encountered in web-scraped data can be handled by using regular expression patterns:
 
 \begin{lstlisting}[language=JavaScript, basicstyle=\small\ttfamily, caption={Text cleanup patterns}]
 // Remove URLs
@@ -69,7 +69,7 @@ text = text.replace(/https?:\/\/[^\s]+/g, '');
 // Remove English characters
 text = text.replace(/[a-zA-Z]/g, '');
 
-// Remove content in brackets
+// Delete content in square brackets
 text = text.replace(/\[[^\]]*\]/g, '');
 text = text.replace(/\{[^\}]*\}/g, '');
 
@@ -78,16 +78,16 @@ text = text.replace(/\s+/g, ' ').trim();
 \end{lstlisting}
 
 \subsection{Stemming Module}
-The stemming module, illustrated in Figure \ref{fig:stemmer}, reduces Bangla words to their root forms for improved dictionary matching.
+The stemming module, depicted in Figure \ref{fig:stemmer}, is used to reduce Bangla words to their root templates for better dictionary matching.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.8\textwidth]{Visuals/stemmer_pipeline.png}
-    \caption{Bangla Stemmer Pipeline: Morphological analysis followed by error minimization for efficient processing.}
+    \caption{Bangla Stemmer Pipeline: Morphological analysis followed by error minimization to achieve efficient processing.}
     \label{fig:stemmer}
 \end{figure}
 
-The stemmer handles common Bangla suffixes including:
+The stemmer deals with common suffixes of the Bangla language:
 \begin{itemize}
     \item Verb inflections (-ছে, -েছে, -ত, -ল)
     \item Case markers (-কে, -তে, -র, -এর)
@@ -98,22 +98,22 @@ The stemmer handles common Bangla suffixes including:
 \section{Dataset Processing}
 
 \subsection{Wikipedia Extraction}
-The Bengali Wikipedia dump processing yields the following statistics:
+The statistics generated by the Bengali Wikipedia dump are:
 
 \begin{table}[ht]
     \centering
-    \caption{Bengali Wikipedia corpus statistics.}
+    \caption{Statistics of Bengali Wikipedia Corpus.}
     \begin{tabular}{l r}
         \toprule
         \textbf{Metric} & \textbf{Value} \\
         \toprule
-        Total Articles Processed & $\sim$169,000 \\
+        Total Number of Articles Processed & $\sim$169,000 \\
         \midrule
         Extracted Sentences & $>$2,000,000 \\
         \midrule
-        Unique Words & $\sim$500,000 \\
+        Distinct Words & $\sim$500,000 \\
         \midrule
-        Word Pairs (Bigrams) & $>$5,000,000 \\
+        Bigrams (Word Pairs) & $>$5,000,000 \\
         \midrule
         Average Sentence Length & 12.3 words \\
         \bottomrule
@@ -122,17 +122,17 @@ The Bengali Wikipedia dump processing yields the following statistics:
 \end{table}
 
 \subsection{Data Quality Analysis}
-The extracted data undergoes quality checks:
+The data is subjected to quality checks after it has been extracted:
 
 \begin{enumerate}
-    \item \textbf{Character Validation}: All entries are verified to contain only valid Unicode Bangla characters
-    \item \textbf{Length Filters}: Very short sentences ($< 3$ words) and overly long sentences ($> 50$ words) are filtered
-    \item \textbf{Duplicate Removal}: Duplicate sentences are identified and removed
+    \item \textbf{Character Validation}: Each entry is verified to contain only valid Unicode Bangla characters
+    \item \textbf{Length Filters}: Short sentences with less than 3 words and long sentences with more than 50 words are filtered
+    \item \textbf{Duplicate Removal}: Duplicates are removed from the sentences
     \item \textbf{Special Character Handling}: Mathematical symbols, citations, and references are cleaned
 \end{enumerate}
 
 \subsection{Word Frequency Distribution}
-Analysis of word frequencies in the corpus reveals a typical Zipfian distribution, where a small number of high-frequency words account for the majority of occurrences.
+Analysis of word frequency in the corpus shows a standard Zipfian distribution, where a small number of high-frequency words account for the majority of occurrences.
 
 \begin{table}[ht]
     \centering
@@ -167,17 +167,17 @@ Analysis of word frequencies in the corpus reveals a typical Zipfian distributio
 
 \section{Database Implementation}
 
-\subsection{Schema Migration}
-The Prisma schema is defined in \texttt{packages/db/schemas/main.prisma}. Key design decisions include:
+\subsection{Schema Design}
+The Prisma schema is defined in \texttt{packages/db/schemas/main.prisma}. The most important design decisions include:
 
 \begin{itemize}
-    \item \textbf{Indexed Word Lookup}: The \texttt{words.value} column is indexed for O(log n) lookup
+    \item \textbf{Indexed Word Lookup}: The \texttt{words.value} column is indexed to provide an efficient O(log n) lookup
     \item \textbf{Composite Indexes}: \texttt{word\_pairs} has composite indexes on \texttt{(prev\_id, next\_id)} for efficient bigram queries
-    \item \textbf{Float Weights}: Weights are stored as floating-point values to represent normalized probabilities
+    \item \textbf{Float Weights}: Weights are stored in the model using floating-point numbers that correspond to normalized probabilities
 \end{itemize}
 
 \subsection{Efficient Data Loading}
-Bulk data loading uses PostgreSQL's COPY protocol via \texttt{pg-copy-streams}:
+Bulk loading of data uses the COPY protocol provided by PostgreSQL through \texttt{pg-copy-streams}:
 
 \begin{lstlisting}[language=JavaScript, basicstyle=\small\ttfamily, caption={Bulk loading using COPY protocol}]
 import { pipeline } from 'stream';
@@ -194,31 +194,31 @@ for (const word of words) {
 copyStream.end();
 \end{lstlisting}
 
-This approach achieves insertion rates of $\sim$50,000 records per second, significantly outperforming individual INSERT statements.
+This provides an insertion rate of $\sim$50,000 records per second, significantly outperforming individual INSERT statements.
 
 \section{Web Application}
 
 \subsection{Architecture}
-The Byakaron web application is built with Next.js 14+ using the App Router pattern:
+The Byakaron web application is developed in Next.js 14+ utilizing the App Router pattern:
 
 \begin{itemize}
-    \item \textbf{Server Components}: Used for data fetching and database queries
-    \item \textbf{Client Components}: Handle interactive elements (text input, suggestions display)
-    \item \textbf{API Routes}: Expose spell checking functionality as REST endpoints
+    \item \textbf{Server Components}: Used for data retrieval and database operations
+    \item \textbf{Client Components}: Deal with the interactive elements of the application, such as text input and display
+    \item \textbf{API Routes}: Implement spell checking capabilities using REST APIs
 \end{itemize}
 
 \subsection{User Interface}
-The application provides a simple, intuitive interface:
+The application has a simple and friendly interface:
 
 \begin{enumerate}
-    \item \textbf{Text Input Area}: Large text area for entering Bangla text
-    \item \textbf{Check Button}: Triggers the spell checking process
-    \item \textbf{Results Display}: Shows identified errors with suggestions
+    \item \textbf{Text Input Area}: A large text area for typing Bangla text
+    \item \textbf{Check Button}: Initiates the spell-checking operation
+    \item \textbf{Results Display}: Shows the errors that have been identified with suggestions
     \item \textbf{Correction Application}: One-click correction acceptance
 \end{enumerate}
 
 \subsection{API Design}
-The spell checking API follows RESTful principles:
+The spell checking API is based on RESTful principles:
 
 \begin{lstlisting}[basicstyle=\small\ttfamily, caption={Spell check API endpoint}]
 POST /api/check
@@ -245,16 +245,16 @@ Response:
 \section{Performance Analysis}
 
 \subsection{Query Performance}
-Database query performance was measured for common operations:
+The execution times for typical database queries were:
 
 \begin{table}[ht]
     \centering
-    \caption{Average query response times.}
+    \caption{Average Response Times for Each Query.}
     \begin{tabular}{l r}
         \toprule
         \textbf{Operation} & \textbf{Avg. Time (ms)} \\
         \toprule
-        Dictionary Lookup (exact match) & 1.2 \\
+        Dictionary Lookup (Exact Match) & 1.2 \\
         \midrule
         Fuzzy Match (edit distance $\leq$ 2) & 15.4 \\
         \midrule
@@ -267,19 +267,19 @@ Database query performance was measured for common operations:
 \end{table}
 
 \subsection{Memory Usage}
-The application maintains efficient memory usage:
+The application ensures optimal memory usage:
 \begin{itemize}
-    \item Database indexes consume approximately 2GB
-    \item Application runtime memory: $\sim$512MB
-    \item Query cache improves repeated lookup performance by 80\%
+    \item The database indexes occupy roughly 2GB
+    \item Application runtime memory: Approximately 512MB
+    \item Query cache optimizes repeated lookup efficiency by 80\%
 \end{itemize}
 
 \section{Summary}
-The implementation successfully delivers:
+The solution successfully provides:
 \begin{enumerate}
-    \item A processed Bangla corpus with 2+ million sentences and 500K+ unique words
+    \item A Bangla corpus with over 2+ million sentences and 500K+ unique words
     \item Efficient database storage with optimized indexes for fast lookup
-    \item Modular NLP packages for tokenization, stemming, and text processing
+    \item Modular NLP toolkits for tokenization, stemming, and text processing
     \item A responsive web application for real-time spell checking
     \item REST API for integration with other applications
 \end{enumerate}
