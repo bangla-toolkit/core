@@ -1,6 +1,6 @@
 \chapter{Conclusion}
 
-This thesis has described the design, development, and implementation of Byakaron, a comprehensive Bangla Grammar and Spell Checker system. The objective of this project was to tackle the large gaps in the current state-of-the-art in Bangla Natural Language Processing, particularly in the realms of spell checking and grammar correction.
+This thesis has discussed the design, development, and implementation of Byakaron, a comprehensive Bangla Grammar and Spell Checker system. The main aim of this project is to bridge the huge gap that is present in the state-of-the-art in Bangla Natural Language Processing, especially in the areas of spell checking and grammar checking.
 
 \section{Summary}
 
@@ -8,120 +8,120 @@ This thesis has described the design, development, and implementation of Byakaro
 The project has achieved the following:
 
 \begin{enumerate}
-    \item \textbf{Construction of the Complete Dataset}: Processed the entire Bengali Wikipedia dump, extracting more than 2 million sentences and creating a vocabulary close to 550,000 distinct words in Bangla. The bigram statistics of words with more than 5 million entries offers a strong statistical basis for language modeling.
+    \item \textbf{Construction of the Complete Dataset}: The entire Bengali Wikipedia dump was processed to yield more than 2 million sentences. The vocabulary is close to 550,000 distinct words in the Bangla language. The statistics of bigram words with more than 5 million entries provide strong statistical grounds for language modeling.
     
-    \item \textbf{NLP Tool Development}: Developed module packages for basic NLP tasks such as tokenization, text normalization, and basic stemming. These tools are designed to be extendable and could be used for other Bangla NLP projects.
+    \item \textbf{NLP Tool Development}: The module packages for the basic NLP tools were developed. The tools are extendable and can be used for other Bangla NLP projects.
     
-    \item \textbf{Hybrid Spell Checker}: Designed a spell checking tool that utilizes dictionary search, edit-distance matching, phonetic (Soundex) matching, and analysis of context by N-grams. The system has a detection rate of 87.3\% and 78.5\% top-1 error correctness.
+    \item \textbf{Hybrid Spell Checker}: The spell checking tool was designed. The tool makes use of dictionary search, edit-distance match, soundex match, and analysis of context via N-grams. The system has a detection rate of 87.3\% and 78.5\% top-1 error correctness.
     
-    \item \textbf{Grammar Checker Foundation}: Laid the foundation for rule-based grammar correction, which includes 86 rules applied to agreement of subject and verb, punctuation, and word confusion.
+    \item \textbf{Grammar Checker Foundation}: The foundation for the rule-based grammar checker was laid. The grammar checker includes 86 rules that are used in the process of agreement.
     
-    \item \textbf{Modern Web Application}: Developed a responsive, user-friendly web application using Next.js that offers real-time spell checking with sub-second response times for typical use cases.
+    \item \textbf{Modern Web Application}: The project developed a modern web application using Next.js. The application is very user-friendly and provides real-time spell checking with sub-second response times.
     
-    \item \textbf{Open Source Contribution}: Released the entire project as open-source software, which helps to add to the Bangla NLP community and pave the way for further research and development.
+    \item \textbf{Open Source Contribution}: The entire project was released as open-source software. The project contributes significantly to the Bangla NLP community.
 \end{enumerate}
 
 \subsection{Research Contributions}
-The research has the following contributions to the field:
+The research contributes to the field in the following ways:
 
 \begin{itemize}
-    \item Shows the feasibility of hybrid methods in low-resource language processing
-    \item Offers a processed corpus of the Bangla language for researchers to use
-    \item Sets the baseline on Bangla spell checking performance
-    \item Provides a useful and accessible resource for Bangla writers and learners
+    \item Demonstrates the viability of hybrid approaches for low-resource languages
+    \item Provides a pre-processed corpus for the Bangla language for other researchers to use
+    \item Establishes the baseline for spell checking performance on the Bangla language
+    \item Presents a useful tool for Bangla speakers, both native and non-native writers
 \end{itemize}
 
 \section{Limitations and Future Works}
 
 \subsection{Current Limitations}
-The study has some limitations that should be acknowledged:
+The research also has some limitations that must be mentioned:
 
 \begin{enumerate}
-    \item \textbf{Grammar Check Completion}: No more than 10\% of grammar checking functionality has been implemented. The rule-based approach, although very precise, has limited coverage.
+    \item \textbf{Grammar Check Completion}: Only 10\% of the grammar check functionality is implemented. Although the rule-based approach is extremely accurate, it is also limited.
     
-    \item \textbf{Vocabulary Coverage}: The Wikipedia corpus may not fully represent colloquial, informal, or domain-specific words in Bangla.
+    \item \textbf{Vocabulary Coverage}: The Wikipedia corpus might not include all the colloquial, informal, or specialized vocabulary of the Bangla language.
     
-    \item \textbf{Context Window}: The current bigram model has a small context window. For longer-range dependencies, more complex models are required.
+    \item \textbf{Context Window}: The current bigram model also has a narrow context window. For more complex models, longer dependency ranges are necessary.
     
-    \item \textbf{Processing Speed}: Very long texts (1000+ words) take multiple seconds to process, which can affect user experience in some applications.
+    \item \textbf{Processing Speed}: For very long texts (over 1000 words), the processing time is around multiple seconds.
     
-    \item \textbf{Dialect Handling}: The system is designed to handle standard written Bangla and does not specifically address regional dialects.
+    \item \textbf{Dialect Handling}: The current approach is specifically for standard written Bangla.
 \end{enumerate}
 
 \subsection{Future Research Directions}
-With these lessons learned and the current limitations, we propose the following future research directions:
+After identifying the lessons learned from this research, we propose the following future research directions:
 
 \subsubsection{Grammar Checker Enhancement}
 \begin{itemize}
-    \item Full implementation of rule-based grammar checking with comprehensive coverage
-    \item Investigate the use of sequence-to-sequence models (BanglaT5 \cite{bhattacharjee2022banglat5}) for grammar correction
-    \item Integration with the VAIYAKARANA benchmark \cite{bhattacharyya2024vaiyakarana} for systematic assessment
+    \item Complete implementation of the grammar checker using the rule-based approach
+    \item Use sequence-to-sequence models (BanglaT5 \cite{bhattacharjee2022banglat5}) for grammar correction
+    \item Integrate the VAIYAKARANA benchmark \cite{bhattacharyya2024vaiyakarana} for grammar correction
 \end{itemize}
 
 \subsubsection{Model Improvements}
 \begin{itemize}
-    \item Use trigrams and extended n-grams to better model context sensitivity
-    \item Investigate character-level embeddings for better out-of-vocabulary word handling
-    \item Fine-tune BanglaBERT \cite{bhattacharjee2022banglabert} to perform contextual spell checking
+    \item Use trigrams and extended n-gram models for better context sensitivity
+    \item Explore character-level embeddings for better out-of-vocabulary word handling
+    \item Fine-tune the BanglaBERT model \cite{bhattacharjee2022banglabert} for contextual spell checking
 \end{itemize}
 
 \subsubsection{Dataset Expansion}
 \begin{itemize}
-    \item Integration of data from newspapers, social media, and literature
-    \item Construction of annotated error corpora for training
-    \item Develop dialect-specific materials
+    \item Integrate newspaper, social media, and literature data
+    \item Create annotated error datasets for model training
+    \item Develop dialect-specific datasets
 \end{itemize}
 
 \subsubsection{Platform Extensions}
 \begin{itemize}
-    \item Create mobile applications for Android and iOS
+    \item Develop mobile applications for Android and iOS platforms
     \item Develop browser extensions for real-time spell checking
-    \item Create plugins for popular text editors such as VS Code or Microsoft Word
-    \item Make public APIs for external integration
+    \item Develop plugins for popular text editors such as VS Code or MS Word
+    \item Develop public APIs for integration with other applications
 \end{itemize}
 
 \subsubsection{Advanced Features}
 \begin{itemize}
     \item Collaborative editing with spell checking
-    \item Domain-specific models (technical, legal, medical writing)
-    \item Style and tone recommendations beyond error correction
-    \item Integration with translation and transliteration services
+    \item Domain-specific models for technical, legal, medical writing, etc.
+    \item Style and tone suggestions
+    \item Translation and transliteration integration
 \end{itemize}
 
 \section{Recommendations}
-From the development experiences in the Byakaron project, the following recommendations can be made:
+The experiences gathered during the development process of the Byakaron project can be used to provide the following recommendations for future projects:
 
 \subsection{For Researchers}
 \begin{enumerate}
-    \item \textbf{Benchmark Utilization}: Make use of standardized benchmarks, for example, VAIYAKARANA for fair comparison of grammar correction systems.
+    \item \textbf{Benchmark Utilization}: Utilize the available benchmarks, such as the VAIYAKARANA for grammar correction.
     
-    \item \textbf{Data Sharing}: Publish the processed data to facilitate research on Bangla NLP.
+    \item \textbf{Data Sharing}: Share the processed data for further research on Bangla NLP.
     
-    \item \textbf{Hybrid Models}: Think about integrating statistical models and neural networks instead of relying on a single approach.
+    \item \textbf{Hybrid Models}: Consider the integration of hybrid models, such as the integration of statistical models and neural networks.
 \end{enumerate}
 
 \subsection{For Developers}
 \begin{enumerate}
-    \item \textbf{Modular Design}: Create code that is reusable and well-documented and that can be incorporated into various applications.
+    \item \textbf{Modular Design}: Design the code in such a manner that it can be reused in different applications.
     
-    \item \textbf{Performance Optimization}: Apply caching and lazy loading for responsive user experiences.
+    \item \textbf{Performance Optimization}: Use caching and lazy loading for better performance.
     
-    \item \textbf{Open Source Contribution}: Contribute to and build upon existing Bangla NLP projects rather than starting from scratch.
+    \item \textbf{Open Source Contribution}: Contribute to existing projects on Bangla NLP rather than building from scratch.
 \end{enumerate}
 
 \subsection{For the Community}
 \begin{enumerate}
-    \item \textbf{Feedback and Testing}: Users must feed back errors and edge conditions to assist in improving the system.
+    \item \textbf{Feedback and Testing}: The user must provide feedback on errors and edge cases to help improve the application.
     
-    \item \textbf{Rule Contributions}: Contributions of native speakers may include grammar rules and terms not found in Wikipedia.
+    \item \textbf{Rule Contributions}: Contributions from native speakers could be grammar rules and vocabulary not found on Wikipedia.
     
-    \item \textbf{Localization}: Encourage localization of tools to be applicable to local dialects.
+    \item \textbf{Localization}: Localization of the application is recommended to be applicable to the local dialect.
 \end{enumerate}
 
 \section{Final Remarks}
-Byakaron is an important milestone in the development of comprehensive Bangla language processing tools. Although spell-checking has been well-advanced, full grammar correction is still a topic for future research. The open-source character of the project will make sure that it has the capability to develop further through the contributions of the community and research extensions.
+Byakaron is an important milestone in the development of comprehensive Bangla language processing tools. Though the spell checking has been well advanced, grammar correction is still an area to be researched in the future. The open-source nature of the project ensures that it has the potential to grow and develop further through the contributions of the community and the extensions provided through research.
 
-This project shows that using contemporary technologies and design principles, it is possible to develop useful NLP tools for under-resourced languages like Bangla. It is our hope that Byakaron will prove to be both a helpful aid for Bangla writers and a foundation for further research in Bangla natural language processing.
+This project demonstrates the potential of using modern technology and design principles to create useful NLP tools for under-resourced languages like Bangla. It is our hope that Byakaron will be useful to Bangla language writers and serve as a foundation for further research into Bangla natural language processing.
 
 \vspace{1em}
 \begin{center}
