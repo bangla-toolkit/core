@@ -1,6 +1,6 @@
 \chapter{Results and Discussion}
 
-This chapter will discuss the results of the development of the Byakaron project. It will analyze the results compared to the expected targets. It comprises an assessment of the performance, comparison with existing tools, and a discussion of the implications and limitations of the findings.
+In this chapter, the outcomes of the development of the Byakaron project will be discussed. This involves comparing the outcomes achieved with the goals that were set. Additionally, the implications of the outcomes achieved will be examined.
 
 \section{Project Completion Status}
 
@@ -90,7 +90,7 @@ The spell checking system was tested on a test set of 1,000 sentences containing
 The system attains a recall rate of 87.3\% for identifying misspelled words, which means about 9 out of 10 spelling mistakes are identified correctly. Precision of 91.2\% shows that when the system marks a word as incorrect, it is actually correct more than 90\% of cases.
 
 \subsubsection{Correction Accuracy}
-In the case of the top recommendation offered by the system, 78.5\% of corrections are correct. This goes up to 89.7\% for the top three recommendations, meaning that the correct answer is always among the options even if it is not the first choice.
+For the top recommendation in the system, the accuracy level stands at 78.5% in terms of corrections. If you take the top three recommendations, then the accuracy level increases to 89.7%, which means the correct answer is always among the recommendations, even though it may not necessarily be the first recommendation.
 
 \subsection{Performance by Error Type}
 The system performance for various types of errors has been shown in Table \ref{tab:error_types}.
@@ -116,7 +116,7 @@ The system performance for various types of errors has been shown in Table \ref{
     \label{tab:error_types}
 \end{table}
 
-The system works best on simple typos and additional character errors, where the edit distance is minimal. Phonetic errors, which are errors of spelling that are phonetically similar to the correct word, prove more difficult but are nonetheless dealt with in a reasonable accuracy through the Soundex matching algorithm.
+The system excels at small typos with extra characters, where the edit distance is small. Phonetic errors, where the misspelling is similar in sound to the correct spelling, are more difficult, although we achieve good results due to the use of the Soundex matching technique.
 
 \section{Grammar Checking Results}
 The grammar checking module is in its first stage of development, which is at 10\% completion, concentrating on rule-based patterns for common errors:
