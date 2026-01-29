@@ -1,6 +1,6 @@
 \chapter{Literature Review}
 
-This report reviews and integrates current research efforts in Bangla spell checkers and grammar correctors and in the broader field of Natural Language Processing (NLP). It establishes the research context and identifies the gaps and trends that exist in the state of knowledge that form the foundation of the Byakaron system.
+This report will cover and compile the latest research in the area of Bangla spell checking and grammar correction, and place it in the broader field of Natural Language Processing (NLP) research. It will provide a backdrop to the research and identify the gaps and trends in the existing knowledge base, which underpins the Byakaron system.
 
 \section{Bangla Natural Language Processing: Overview}
 Bangla (Bengali) is the seventh most commonly spoken language in the world, with a native speaker base of over 300 million people. However, in NLP-based applications, Bangla remains a ``low-resource'' language due to a lack of appropriately labeled data resources and complete models of the language itself \cite{sarker2021bnlp}. In the latter few years, there has been increasing interest in NLP applications in the Bangla language from academia and also from the open-source community. The BNLP toolkit provides basic support in tokenization, stemming, POS-tagging, and named entity identification tasks in the Bangla language itself \cite{sarker2021bnlp}. The same goes for the OpenBangla effort with input method editors and basic spell-checking support \cite{openbangla2020}.
@@ -44,7 +44,7 @@ The VAIYAKARANA system was developed by Bhattacharyya \& Bhattacharya (2024) \ci
     \item 619 human-written sentences from native-written essays
 \end{itemize}
 
-This benchmark allows for a structured approach to produce incorrect sentences that could also be applicable for other Indian languages and thus help overcome the lack of annotated data for various low-resource language-related research.
+This benchmark offers a systematic approach to creating incorrect sentences, which can also be used for other Indian languages. This can be helpful in dealing with the lack of annotated data in low-resource languages.
 
 \subsection{Wikipedia-Based Corpora}
 Dump files from Wikipedia have been an integral source for the Bangla language corpus. The Bengali version of the Wikipedia database, available through Wikimedia data dumps \cite{wikidumps2024}, has over 169,000 articles that can be used for NLP applications. Data processing pipes involve the removal of Mediawiki codes through the use of WikiExtractor software \cite{abujar2019dataset}.
@@ -65,7 +65,7 @@ Although OpenBangla is a helpful input assistant tool, its spell checking capabi
 The Avro Keyboard \cite{avroproject2003}, developed by OmicronLab, was the first to offer phonetic typing functionality for Bangla and came equipped with a spell checker. Although Avro is a popular software, Avro's spell checking uses a static dictionary method that does not involve statistical and/or contextual analysis.
 
 \subsection{Commercial Solutions}
-Commercially available solutions like REVE NLP offer spell and grammar checks for the Bangla language as part of enterprise offerings. However, these tools are not freely available for research and general use, and therefore, the contribution of these libraries to the open-source ecosystem is limited.
+There are commercial alternatives such as REVE NLP, which offers Bangla spell and grammar checks as part of their enterprise solutions. However, such solutions are not available for free use or research, thus their overall impact on the open-source community is limited.
 
 \section{Technology Foundations}
 
